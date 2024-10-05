@@ -129,33 +129,7 @@ function UpdateQuest(questRow) {
     // );
 }
 
-function UpdateQuest(questRow) {
-    const [quest, setQuest] = useState([]);
 
-    useEffect(() => {
-        updateQuests();
-    }, []);
-
-    async function updateQuests() {
-        const { data } = await supabase
-        .from('quest')
-        .update({ questUser: questRow['questUser'], 
-            completed: questRow['completed'], 
-            difficulty: questRow['difficulty'], 
-            date: questRow['date'] })
-        .eq('taskId', questRow['taskId'])
-
-        setQuest(data);
-
-    }
-    // return (
-    // <ul>
-    //     {quests.map((quest) => (
-    //         <li key={quest.questName}>{quest.questName}</li>
-    //     ))}
-    // </ul>
-    // );
-}
 
 
 export default GetData
