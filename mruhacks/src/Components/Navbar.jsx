@@ -7,7 +7,7 @@ const Navbar = (props) => {
       <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top w-100">
         <div className="container-fluid">
-        <a className="navbar-brand" href="#">Productify</a>
+        <a className="navbar-brand" href="#">QuestHub</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -29,7 +29,7 @@ const Navbar = (props) => {
             <div
               className="progress-bar"
               role="progressbar"
-              style={{ width: `${levelPercentage}%` }}
+              style={{ width: `${(props.userData.xp % 1000)/ 1000 * 100}%` }} //divide by 1000 to calculate level, * 10 to put it as a percentage
             ></div>
             </div>
             <div className="dropdown">
