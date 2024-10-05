@@ -4,7 +4,6 @@
   margin: 10px 0;
   border-radius: 5px;
   background-color: #f9f9f9;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 100%; /* Ensures the box doesn't exceed container width */
@@ -13,7 +12,7 @@
 }
 
 .reward-box span {
-  max-width: 70%;
+  max-width: 60%;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }

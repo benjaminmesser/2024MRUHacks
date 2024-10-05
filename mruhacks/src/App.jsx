@@ -8,16 +8,16 @@ import GetData from './backend/database';
 function App() {
   var quest_data = GetData(0, 'quest');
   console.log(quest_data);
-  var user_data = GetData(0, 'user'); //if it fails, try public.user
+  var user_data = GetData(0, 'user');
   console.log(user_data);
   var reward_data = GetData(0, 'reward');
   console.log(reward_data)
   
   return (
     <>
-      <div>
-        <Navbar />
-        <Main />
+      <div >
+        <Navbar userData = {user_data} userXp = {user_data.xp}/>
+        <Main rewardData = {reward_data} questData = {quest_data}/>
       </div>
     </>
   )

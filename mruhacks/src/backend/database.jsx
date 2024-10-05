@@ -64,7 +64,7 @@ function InsertQuest(questRow) {
     async function getQuests() {
         const { data } = await supabase
         .from('quest')
-        .insert({ username: userRow['username'], firstName: userRow['firstName'], lastName: userRow['lastName'], xp: userRow['xp'], points: userRow['points'] })
+        .insert({ questUser: questRow['questUser'], completed: questRow['completed'], difficulty: rewardRow['difficulty'], date: rewardRow['date'] })
         
         setQuest(data);
 
@@ -79,27 +79,82 @@ function InsertQuest(questRow) {
 }
 
 function InsertReward(rewardRow) {
-    const [quests, setQuest] = useState([]);
+    const [reward, setReward] = useState([]);
 
     useEffect(() => {
-        getQuests();
+        getRewards();
     }, []);
 
-    async function getQuests() {
+    async function getRewards() {
         const { data } = await supabase
-        .from('quest')
-        .insert({ username: userRow['username'], firstName: userRow['firstName'], lastName: userRow['lastName'], xp: userRow['xp'], points: userRow['points'] })
+        .from('reward')
+        .insert({ rewardName: rewardRow['rewardName'], rewardDescription: rewardRow['rewardDescription'], cost: rewardRow['cost'] })
         
-        setQuest(data);
+        setReward(data);
 
     }
     return (
     <ul>
-        {quests.map((quest) => (
-            <li key={quest.questName}>{quest.questName}</li>
+        {reward.map((rewards) => (
+            <li key={reward.rewardName}>{rewards.questName}</li>
         ))}
     </ul>
     );
+}
+function UpdateQuest(questRow) {
+    const [quest, setQuest] = useState([]);
+
+    useEffect(() => {
+        updateQuests();
+    }, []);
+
+    async function updateQuests() {
+        const { data } = await supabase
+        .from('quest')
+        .update({ questUser: questRow['questUser'], 
+            completed: questRow['completed'], 
+            difficulty: questRow['difficulty'], 
+            date: questRow['date'] })
+        .eq('taskId', questRow['taskId'])
+
+        setQuest(data);
+
+    }
+    // return (
+    // <ul>
+    //     {quests.map((quest) => (
+    //         <li key={quest.questName}>{quest.questName}</li>
+    //     ))}
+    // </ul>
+    // );
+}
+
+function UpdateQuest(questRow) {
+    const [quest, setQuest] = useState([]);
+
+    useEffect(() => {
+        updateQuests();
+    }, []);
+
+    async function updateQuests() {
+        const { data } = await supabase
+        .from('quest')
+        .update({ questUser: questRow['questUser'], 
+            completed: questRow['completed'], 
+            difficulty: questRow['difficulty'], 
+            date: questRow['date'] })
+        .eq('taskId', questRow['taskId'])
+
+        setQuest(data);
+
+    }
+    // return (
+    // <ul>
+    //     {quests.map((quest) => (
+    //         <li key={quest.questName}>{quest.questName}</li>
+    //     ))}
+    // </ul>
+    // );
 }
 
 
