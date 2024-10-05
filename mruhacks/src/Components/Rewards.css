@@ -13,7 +13,10 @@
 }
 
 .reward-box span {
-  max-width: 70%;
+  max-width: 0%;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+
+.reward-box button, .reward-box input {
+  margin-left: 10px;
