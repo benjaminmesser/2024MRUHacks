@@ -1,8 +1,5 @@
-/* Calendar.css */
-.calendar-input {
-  cursor: pointer; /* Ensures the cursor is a pointer when hovering over the input */
-}
-
-.full-width-calendar {
+.react-calender {
   width: 100%;
+  cursor: pointer; /* Ensures the cursor is a pointer when hovering over the input */
+
 }
