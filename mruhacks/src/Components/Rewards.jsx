@@ -44,7 +44,7 @@ const Rewards = () => {
 
   return (
     <div>
-      <h1>Rewards</h1>
+      <h3>Rewards</h3>
       <button onClick={openModal}>Add Reward</button>
 
       {isModalOpen && (
