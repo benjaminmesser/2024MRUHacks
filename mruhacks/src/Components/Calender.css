@@ -1,5 +1,5 @@
 .react-calender {
-  width: 100%;
+  width: 100% !important;
   cursor: pointer; /* Ensures the cursor is a pointer when hovering over the input */
 
 }
