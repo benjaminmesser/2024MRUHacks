@@ -2,3 +2,7 @@
 .calendar-input {
   cursor: pointer; /* Ensures the cursor is a pointer when hovering over the input */
 }
+
+.full-width-calendar {
+  width: 100%;
+}
