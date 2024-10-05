@@ -11,7 +11,7 @@ const CalendarComponent = () => {
 
   return (
     <div>
-      <h1>My Calendar</h1>
+      <h1>Calendar</h1>
       <Calendar
         onChange={onChange}
         value={selectedDate}

@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: space-between; /* Space between components */
+    align-items: flex-start; /* Align at the top */
+    padding: 20px;
+  }
+  
+  .task-container, .calendar-container, .rewards-container {
+    flex: 1; /* Make each section take up equal width */
+    margin: 10px; /* Add some space around each section */
+  }
+  
+  .calendar-container {
+    flex: 2; /* Give more space to the calendar if needed */
+  }
+  
