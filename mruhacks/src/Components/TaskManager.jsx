@@ -30,28 +30,34 @@ const TaskManager = () => {
   };
 
   return (
-    <div>
-      <h1>Task Manager</h1>
-      <input
-        type="text"
-        value={task}
-        onChange={handleInputChange}
-        placeholder="Enter a task"
-      />
-      <button onClick={handleAddTask}>Add Task</button>
+    <div className="container mt-4">
+      <h1 className="mb-4">Tasks</h1>
+      <div className="input-group mb-3" style={{ maxWidth: '400px', margin: '0 auto' }}>
+        <input
+          type="text"
+          className="form-control"
+          value={task}
+          onChange={handleInputChange}
+          placeholder="Enter a task"
+        />
+        <button className="btn btn-primary" onClick={handleAddTask}>Add Task</button>
+      </div>
 
-      <ul>
+      <ul className="list-group">
         {tasks.map((t, index) => (
-          <li key={index}>
-            <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
-              {t.text}
-            </span>
-            <input
-              type="checkbox"
-              checked={t.completed}
-              onChange={() => handleCheckboxChange(index)}
-            />
-            <button onClick={() => handleRemoveTask(index)}>Remove</button>
+          <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                checked={t.completed}
+                onChange={() => handleCheckboxChange(index)}
+              />
+              <label className="form-check-label" style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
+                {t.text}
+              </label>
+            </div>
+            <button className="btn btn-danger btn-sm" onClick={() => handleRemoveTask(index)}>Remove</button>
           </li>
         ))}
       </ul>
