@@ -102,16 +102,20 @@ function InsertReward(rewardRow) {
     );
 }
 function UpdateQuest(questRow) {
-    const [quests, setQuest] = useState([]);
+    const [quest, setQuest] = useState([]);
 
     useEffect(() => {
         getQuests();
     }, []);
 
-    async function getQuests() {
+    async function updateQuests() {
         const { data } = await supabase
         .from('quest')
-        .insert({ questUser: questRow['questUser'], completed: questRow['completed'], difficulty: rewardRow['difficulty'], date: rewardRow['date'] })
+        .update({ questUser: questRow['questUser'], 
+            completed: questRow['completed'], 
+            difficulty: rewardRow['difficulty'], 
+            date: rewardRow['date'] })
+        .eq('id', questRow['id'])
         
         setQuest(data);
 
