@@ -49,7 +49,7 @@ const QuestManager = ({ selectedDate }) => {
         if (i === index) {
           return {
             ...quest,
-            completed: !quest.completed,
+            completed: !quest.complenpted,
             completionTime: !quest.completed ? new Date().toLocaleString() : null
           };
         }
@@ -77,6 +77,7 @@ const QuestManager = ({ selectedDate }) => {
 
   return (
     <div>
+      <h3>Quests</h3>
       <button onClick={openModal}>Add Quest</button>
       {isModalOpen && (
         <div className="modal">
