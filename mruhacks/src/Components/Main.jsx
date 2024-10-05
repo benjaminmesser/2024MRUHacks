@@ -1,6 +1,6 @@
 import React from 'react';
 import './Main.css'; // Assuming you'll use an external CSS file
-import QuestManager from './QuestManager';
+import TaskManager from './TaskManager';
 import CalendarComponent from './Calender';
 import Rewards from './Rewards';
 
@@ -10,7 +10,7 @@ return (
         <div className="row">
             <div className="col-md-3">
                 <div className="p-3 border bg-light">
-                    <QuestManager />
+                    <TaskManager />
                 </div>
             </div>
             <div className="col-md-6">

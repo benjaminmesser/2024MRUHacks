@@ -1,9 +1,8 @@
 import Navbar from "./Components/Navbar"
 import './App.css'
-import QuestManager from './Components/QuestManager';
+import TaskManager from './Components/TaskManager';
 import Calendar from "./Components/Calender";
 import Main from "./Components/Main";
-import 
 
 function App() {
   return (
