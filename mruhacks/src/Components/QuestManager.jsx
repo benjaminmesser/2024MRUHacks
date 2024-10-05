@@ -77,6 +77,7 @@ const QuestManager = ({ selectedDate }) => {
 
   return (
     <div>
+      <h3>Quests</h3>
       <button onClick={openModal}>Add Quest</button>
       {isModalOpen && (
         <div className="modal">
