@@ -1,17 +1,36 @@
 import React, { useState } from 'react';
+import './TaskManager.css';
 
 const TaskManager = () => {
-  const [task, setTask] = useState('');
+  const [taskName, setTaskName] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
+  const [taskDifficulty, setTaskDifficulty] = useState('easy');
   const [tasks, setTasks] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleInputChange = (e) => {
-    setTask(e.target.value);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTaskName(''); // Clear form on close
+    setTaskDescription('');
+    setTaskDifficulty('easy');
   };
 
   const handleAddTask = () => {
-    if (task.trim()) {
-      setTasks([...tasks, { text: task, completed: false, completionTime: null }]);
-      setTask('');
+    if (taskName.trim()) {
+      setTasks([...tasks, { 
+        name: taskName, 
+        description: taskDescription, 
+        difficulty: taskDifficulty, 
+        completed: false, 
+        completionTime: null 
+      }]);
+      closeModal();
+    } else {
+      alert("Task name is required.");
     }
   };
 
@@ -30,34 +49,78 @@ const TaskManager = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h1 className="mb-4">Tasks</h1>
-      <div className="input-group mb-3" style={{ maxWidth: '400px', margin: '0 auto' }}>
-        <input
-          type="text"
-          className="form-control"
-          value={task}
-          onChange={handleInputChange}
-          placeholder="Enter a task"
-        />
-        <button className="btn btn-primary" onClick={handleAddTask}>Add Task</button>
-      </div>
+    <div>
+      <h1>Task Manager</h1>
+      <button onClick={openModal}>Add Task</button>
 
-      <ul className="list-group">
-        {tasks.map((t, index) => (
-          <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                checked={t.completed}
-                onChange={() => handleCheckboxChange(index)}
-              />
-              <label className="form-check-label" style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
-                {t.text}
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Add a Task</h2>
+            <label>Task Name: </label>
+            <input
+              type="text"
+              value={taskName}
+              onChange={(e) => setTaskName(e.target.value)}
+              placeholder="Enter task name"
+              required
+            />
+            <label>Description:</label>
+            <textarea
+              value={taskDescription}
+              onChange={(e) => setTaskDescription(e.target.value)}
+              placeholder="Enter task description (optional)"
+            ></textarea>
+            <label>Difficulty:</label>
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  value="easy"
+                  checked={taskDifficulty === 'easy'}
+                  onChange={() => setTaskDifficulty('easy')}
+                />
+                Easy
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="medium"
+                  checked={taskDifficulty === 'medium'}
+                  onChange={() => setTaskDifficulty('medium')}
+                />
+                Medium
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="hard"
+                  checked={taskDifficulty === 'hard'}
+                  onChange={() => setTaskDifficulty('hard')}
+                />
+                Hard
               </label>
             </div>
-            <button className="btn btn-danger btn-sm" onClick={() => handleRemoveTask(index)}>Remove</button>
+            <button onClick={handleAddTask}>Add Task</button>
+            <button onClick={closeModal}>Cancel</button>
+          </div>
+        </div>
+      )}
+
+      <ul>
+        {tasks.map((t, index) => (
+          <li key={index}>
+            <input
+              type="checkbox"
+              checked={t.completed}
+              onChange={() => handleCheckboxChange(index)}
+            />
+            <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
+              {t.name} (Difficulty: {t.difficulty})
+              {t.description && <span> - {t.description}</span>}
+            </span>
+            {t.completed && <span> (Completed at: {t.completionTime})</span>}
+            <button onClick={() => handleRemoveTask(index)}>Remove</button>
           </li>
         ))}
       </ul>
