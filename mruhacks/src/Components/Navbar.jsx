@@ -1,12 +1,13 @@
 import React from 'react'
 import avatar from '../assets/avatar.jpg'
 
-const Navbar = ({ userLevel, levelPercentage }) => {
+const Navbar = (props) => {
+  // to access the data, use props.userData (probably)
     return (
       <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top w-100">
         <div className="container-fluid">
-        <a className="navbar-brand" href="#">Productify</a>
+        <a className="navbar-brand" href="#">QuestHub</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,12 +24,12 @@ const Navbar = ({ userLevel, levelPercentage }) => {
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item d-flex align-items-center">
-            <span className="text-light me-2">Lvl {userLevel}</span>
+            <span className="text-light me-2">Lvl {props.userData.xp /1000}</span>
             <div className="progress" style={{ width: '100px', height: '20px', marginRight: '10px' }}>
             <div
               className="progress-bar"
               role="progressbar"
-              style={{ width: `${levelPercentage}%` }}
+              style={{ width: `${(props.userData.xp % 1000)/ 1000 * 100}%` }} //divide by 1000 to calculate level, * 10 to put it as a percentage
             ></div>
             </div>
             <div className="dropdown">
