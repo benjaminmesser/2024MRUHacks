@@ -49,7 +49,7 @@ const QuestManager = ({ selectedDate }) => {
         if (i === index) {
           return {
             ...quest,
-            completed: !quest.completed,
+            completed: !quest.complenpted,
             completionTime: !quest.completed ? new Date().toLocaleString() : null
           };
         }
