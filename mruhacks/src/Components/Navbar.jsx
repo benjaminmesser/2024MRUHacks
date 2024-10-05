@@ -3,6 +3,9 @@ import avatar from '../assets/avatar.jpg'
 
 const Navbar = (props) => {
   // to access the data, use props.userData (probably)
+  console.log("TESTING NAVBAR PROPS DATA")
+  console.log(props.userData)
+  
     return (
       <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top w-100">
@@ -24,12 +27,14 @@ const Navbar = (props) => {
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item d-flex align-items-center">
-            <span className="text-light me-2">Lvl {props.userData.xp /1000}</span>
+            <span className="text-light me-2">Lvl {props.userXp / 1000}</span>
             <div className="progress" style={{ width: '100px', height: '20px', marginRight: '10px' }}>
             <div
               className="progress-bar"
               role="progressbar"
-              style={{ width: `${(props.userData.xp % 1000)/ 1000 * 100}%` }} //divide by 1000 to calculate level, * 10 to put it as a percentage
+              // style={{ width: `${(props.userData.xp % 1000)/ 1000 * 100}%` }} //TODO MAKE THIS SHIT WORK divide by 1000 to calculate level, * 10 to put it as a percentage
+              style={{ width: `${50}%` }} //divide by 1000 to calculate level, * 10 to put it as a percentage
+
             ></div>
             </div>
             <div className="dropdown">
