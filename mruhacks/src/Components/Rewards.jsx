@@ -5,26 +5,42 @@ const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editIndex, setEditIndex] = useState(null); // New state for tracking edit index
 
-  const openModal = () => {
+  const openModal = (index = null) => {
     setIsModalOpen(true);
+    if (index !== null) {
+      // If editing, populate the modal with existing reward's description
+      setRewardsDescription(rewards[index].description);
+      setEditIndex(index); // Set the index being edited
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setRewardsDescription('');
+    setEditIndex(null); // Clear edit index on close
   };
 
   const handleAddRewards = () => {
     if (rewardsDescription.trim()) {
-      setRewards([...rewards, { 
-        description: rewardsDescription, 
-        completed: false, 
-        completionTime: null 
-      }]);
+      if (editIndex !== null) {
+        // If editing, update the reward at the specific index
+        const updatedRewards = rewards.map((t, i) =>
+          i === editIndex ? { ...t, description: rewardsDescription } : t
+        );
+        setRewards(updatedRewards);
+      } else {
+        // If not editing, add a new reward
+        setRewards([...rewards, { 
+          description: rewardsDescription, 
+          completed: false, 
+          completionTime: null 
+        }]);
+      }
       closeModal();
     } else {
-      alert("Reward is required to add.");
+      alert("Reward description is required.");
     }
   };
 
@@ -45,7 +61,7 @@ const Rewards = () => {
   return (
     <div>
       <h3>Rewards</h3>
-      <button onClick={openModal}>Add Reward</button>
+      <button onClick={() => openModal()}>Add Reward</button>
 
       {isModalOpen && (
         <div className="modal">
@@ -56,7 +72,9 @@ const Rewards = () => {
               onChange={(e) => setRewardsDescription(e.target.value)}
               placeholder="Enter the reward"
             ></textarea>
-            <button onClick={handleAddRewards}>Add Reward</button>
+            <button onClick={handleAddRewards}>
+              {editIndex !== null ? "Save Changes" : "Add Reward"} {/* Change button text */}
+            </button>
             <button onClick={closeModal}>Cancel</button>
           </div>
         </div>
@@ -74,6 +92,7 @@ const Rewards = () => {
                 checked={t.completed}
                 onChange={() => handleCheckboxChange(index)}
               />
+              <button onClick={() => openModal(index)}>Edit</button> {/* Add Edit button */}
               <button onClick={() => handleRemoveRewards(index)}>Remove</button>
             </div>
           </li>
