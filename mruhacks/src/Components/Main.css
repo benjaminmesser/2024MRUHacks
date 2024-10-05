@@ -28,7 +28,7 @@ html, body {
   box-sizing: border-box;
 }
 
-.task-manager, .calendar-component, .rewards {
+.quest-manager, .calendar-component, .rewards {
   padding: 16px; /* Optional: Adjust padding as needed */
   border: 1px solid #ccc; /* Optional: Adjust border as needed */
   background-color: #f8f9fa; /* Optional: Adjust background color as needed */
