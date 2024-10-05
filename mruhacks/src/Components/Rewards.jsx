@@ -16,7 +16,7 @@ const Rewards = () => {
   };
 
   const handleAddRewards = () => {
-    if (rewardsDescription,.trim()) {
+    if (rewardsDescription.trim()) {
       setRewards([...rewards, { 
         description: rewardsDescription, 
         completed: false, 

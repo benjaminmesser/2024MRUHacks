@@ -35,18 +35,18 @@ function InsertUser(userRow) {
         getUser();
     }, []);
 
-    async function Quests() {
+    async function Users() {
         const { data } = await supabase
         .from('user')
         .insert({ id: 1, name: 'Denmark' })
         
-        setQuest(data);
+        setUser(data);
 
     }
     return (
     <ul>
         {user.map((users) => (
-            <li key={user.questName}>{users.questName}</li>
+            <li key={user.firstName}>{users.firstName}</li>
         ))}
     </ul>
     );
@@ -93,8 +93,8 @@ function InsertReward(rewardRow) {
     }
     return (
     <ul>
-        {quest.map((questr) => (
-            <li key={quest.questName}>{questr.questName}</li>
+        {reward.map((rewards) => (
+            <li key={questrow.questName}>{questrow.questName}</li>
         ))}
     </ul>
     );
