@@ -7,6 +7,7 @@ function App() {
     <>
       <div>
         <Navbar />
+        <p>Bryan Naijo</p>
         <TaskManager />
       </div>
     </>
