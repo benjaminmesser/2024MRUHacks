@@ -50,11 +50,11 @@ const Rewards = () => {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <label>Description:</label>
+            <label>Reward:</label>
             <textarea
               value={rewardsDescription}
               onChange={(e) => setRewardsDescription(e.target.value)}
-              placeholder="Enter reward description (optional)"
+              placeholder="Enter the reward"
             ></textarea>
             <button onClick={handleAddRewards}>Add Reward</button>
             <button onClick={closeModal}>Cancel</button>
@@ -65,16 +65,17 @@ const Rewards = () => {
       <ul>
         {rewards.map((t, index) => (
           <li key={index}>
-            <input
-              type="checkbox"
-              checked={t.completed}
-              onChange={() => handleCheckboxChange(index)}
-            />
-            <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
-              {t.description && <span> - {t.description}</span>}
-            </span>
-            {t.completed && <span> (Completed at: {t.completionTime})</span>}
-            <button onClick={() => handleRemoveRewards(index)}>Remove</button>
+            <div className="reward-box">
+              <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
+                {t.description && <span> - {t.description}</span>}
+              </span>
+              <input
+                type="checkbox"
+                checked={t.completed}
+                onChange={() => handleCheckboxChange(index)}
+              />
+              <button onClick={() => handleRemoveRewards(index)}>Remove</button>
+            </div>
           </li>
         ))}
       </ul>
