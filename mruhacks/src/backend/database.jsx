@@ -17,6 +17,8 @@ function GetData(userId, tableName) {
         .eq('userId', userId);
         
         setData(data);
+        console.log("Printing data?");
+        console.log(data);
 
     }
     return (
@@ -38,7 +40,7 @@ function InsertUser(userRow) {
     async function Users() {
         const { data } = await supabase
         .from('user')
-        .insert({ id: 1, name: 'Denmark' })
+        .insert({ username: userRow['username'], firstName: userRow['firstName'], lastName: userRow['lastName'], xp: userRow['xp'], points: userRow['points'] })
         
         setUser(data);
 
@@ -62,7 +64,7 @@ function InsertQuest(questRow) {
     async function getQuests() {
         const { data } = await supabase
         .from('quest')
-        .insert({ id: 1, name: 'Denmark' })
+        .insert({ username: userRow['username'], firstName: userRow['firstName'], lastName: userRow['lastName'], xp: userRow['xp'], points: userRow['points'] })
         
         setQuest(data);
 
@@ -77,7 +79,7 @@ function InsertQuest(questRow) {
 }
 
 function InsertReward(rewardRow) {
-    const [reward, setReward] = useState([]);
+    const [quests, setQuest] = useState([]);
 
     useEffect(() => {
         getQuests();
@@ -85,17 +87,20 @@ function InsertReward(rewardRow) {
 
     async function getQuests() {
         const { data } = await supabase
-        .from('reward')
-        .insert({ id: 1, name: 'Denmark' })
+        .from('quest')
+        .insert({ username: userRow['username'], firstName: userRow['firstName'], lastName: userRow['lastName'], xp: userRow['xp'], points: userRow['points'] })
         
-        setReward(data);
+        setQuest(data);
 
     }
     return (
     <ul>
-        {reward.map((rewards) => (
-            <li key={questrow.questName}>{questrow.questName}</li>
+        {quests.map((quest) => (
+            <li key={quest.questName}>{quest.questName}</li>
         ))}
     </ul>
     );
 }
+
+
+export default GetData
