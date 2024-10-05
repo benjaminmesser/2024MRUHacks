@@ -4,19 +4,19 @@ import { useEffect, useState } from "react";
 const supabase = createClient("https://ifzgmtvnlimxhzupprfz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmemdtdHZubGlteGh6dXBwcmZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwOTk4MjQsImV4cCI6MjA0MzY3NTgyNH0.PQlh_1OPwPulJsrDmu5UogQIZPtwJTrTxAuuGcnYA_w");
 
 function GetData(userId, tableName) {
-    const [quest, setQuest] = useState([]);
+    const [quest, setData] = useState([]);
 
     useEffect(() => {
-        getQuests();
+        getData();
     }, []);
 
-    async function getQuests() {
+    async function getData() {
         const { data } = await supabase
         .from(tableName)
         .select()
         .eq('userId', userId);
         
-        setQuest(data);
+        setData(data);
 
     }
     return (
@@ -28,16 +28,16 @@ function GetData(userId, tableName) {
     );
 }
 
-function InsertUser(questRow) {
-    const [quest, setQuest] = useState([]);
+function InsertUser(userRow) {
+    const [user, setUser] = useState([]);
 
     useEffect(() => {
-        getQuests();
+        getUser();
     }, []);
 
-    async function getQuests() {
+    async function Quests() {
         const { data } = await supabase
-        .from('quest')
+        .from('user')
         .insert({ id: 1, name: 'Denmark' })
         
         setQuest(data);
@@ -45,15 +45,15 @@ function InsertUser(questRow) {
     }
     return (
     <ul>
-        {quest.map((questr) => (
-            <li key={quest.questName}>{questr.questName}</li>
+        {user.map((users) => (
+            <li key={user.questName}>{users.questName}</li>
         ))}
     </ul>
     );
 }
 
 function InsertQuest(questRow) {
-    const [quest, setQuest] = useState([]);
+    const [quests, setQuest] = useState([]);
 
     useEffect(() => {
         getQuests();
@@ -69,15 +69,15 @@ function InsertQuest(questRow) {
     }
     return (
     <ul>
-        {quest.map((questr) => (
-            <li key={quest.questName}>{questr.questName}</li>
+        {quests.map((quest) => (
+            <li key={quest.questName}>{quest.questName}</li>
         ))}
     </ul>
     );
 }
 
-function InsertReward(questRow) {
-    const [quest, setQuest] = useState([]);
+function InsertReward(rewardRow) {
+    const [reward, setReward] = useState([]);
 
     useEffect(() => {
         getQuests();
@@ -85,10 +85,10 @@ function InsertReward(questRow) {
 
     async function getQuests() {
         const { data } = await supabase
-        .from('quest')
+        .from('reward')
         .insert({ id: 1, name: 'Denmark' })
         
-        setQuest(data);
+        setReward(data);
 
     }
     return (

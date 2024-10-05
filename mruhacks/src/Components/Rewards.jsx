@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Rewards.css';
 
 const Rewards = () => {
-  const [rewardsName, setRewardsName] = useState('');
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,21 +12,19 @@ const Rewards = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setName(''); // Clear form on close
     setRewardsDescription('');
   };
 
   const handleAddRewards = () => {
-    if (rewardsName.trim()) {
+    if (rewardsDescription,.trim()) {
       setRewards([...rewards, { 
-        name: rewardsName, 
         description: rewardsDescription, 
         completed: false, 
         completionTime: null 
       }]);
       closeModal();
     } else {
-      alert("Rewards name is required.");
+      alert("Reward is required to add.");
     }
   };
 
@@ -53,15 +50,6 @@ const Rewards = () => {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <h2>Add a Reward</h2>
-            <label>Reward Name: </label>
-            <input
-              type="text"
-              value={rewardsName}
-              onChange={(e) => setRewardsName(e.target.value)}
-              placeholder="Enter reward name"
-              required
-            />
             <label>Description:</label>
             <textarea
               value={rewardsDescription}
