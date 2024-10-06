@@ -30,7 +30,7 @@ const Navbar = (props) => {
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item d-flex align-items-center">
-            <span className="text-light me-2">Lvl {props.userData[0].xp / 100}</span>
+            <span className="text-light me-2">Lvl {1 / 100}</span>
             <div className="progress" style={{ width: '100px', height: '20px', marginRight: '10px' }}>
             <div
               className="progress-bar"

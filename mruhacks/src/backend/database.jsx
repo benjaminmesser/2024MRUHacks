@@ -1,6 +1,8 @@
 import  {createClient} from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
+import { doc, setDoc } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
 
 
 // const supabase = createClient("https://ifzgmtvnlimxhzupprfz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmemdtdHZubGlteGh6dXBwcmZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwOTk4MjQsImV4cCI6MjA0MzY3NTgyNH0.PQlh_1OPwPulJsrDmu5UogQIZPtwJTrTxAuuGcnYA_w");
@@ -14,7 +16,9 @@ const firebaseConfig = {
     appId: "1:941843742603:web:21d5edc6bdc161fc5bf98e",
     measurementId: "G-794EV992ZL"
   };
+const app = initializeApp(firebaseConfig);
 
+// await setDoc(doc(db, "user", "0"))
 
 function GetData(userId, tableName) {
     const [data, setData] = useState([]);
@@ -26,14 +30,14 @@ function GetData(userId, tableName) {
     async function getData() {
         // const { data } = (async () => await supabase)();
         
-        const { data } = await supabase
-        .from(tableName)
-        .select()
-        .eq('userId', userId);
-        
-        setData(data);
-        console.log("Printing data?");
-        console.log(data);
+        // const { data } = await supabase
+        // .from(tableName)
+        // .select()
+        // .eq('userId', userId);
+
+        // setData(data);
+        // console.log("Printing data?");
+        // console.log(data);
     // function getData() {
     //     supabase
     //     .from(tableName)

@@ -8,6 +8,10 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import RewardItem from './Components/RewardItem';
 
+//import sample data from text files
+import sampleUserData from './data/user.js'
+
+
 
 function sleep(ms) {
     var start = new Date().getTime(), expire = start + ms;
@@ -29,30 +33,35 @@ const cong = initializeApp(firebaseConfig);
   
 
 function App() {
-  const analytics = getAnalytics(app);
+  const analytics = getAnalytics(cong);
   //(async () => await GetData(0, 'quest'))();
-  var quest_data = GetData(0, 'quest');
+//   var quest_data = GetData(0, 'quest');
 //   sleep(5000);
   console.log('AAAAAAAAAAAAAA');
-  console.log(quest_data);
+//   console.log(quest_data);
 //   quest_data = quest_data.getElementById("cat").querySelectorAll('li');
   console.log('BBBBBB');
-  console.log(quest_data);
-  var user_data = GetData(0, 'user');
-  console.log(user_data);
-  var reward_data = GetData(0, 'reward');
-  console.log(reward_data);
+//   console.log(quest_data);
+//   var user_data = GetData(0, 'user');
+//   console.log(user_data);
+//   var reward_data = GetData(0, 'reward');
+//   console.log(reward_data);
+
+
+  //fetch from test data
+  console.log("TEST USER DATA")
+  console.log(sampleUserData)
   
   return (
     <>
       <div >
-        <Navbar userData = {user_data}/>
-        <Main rewardData = {reward_data} questData = {quest_data}/>
+        <Navbar userData = {1}/>
+        <Main rewardData = {1} questData = {1}/>
       </div>
     </>
   )
 }
 
 export default App
-export cong
+// export cong
 
