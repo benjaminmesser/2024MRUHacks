@@ -141,10 +141,10 @@ const Rewards = () => {
       </ul>
 
       <div className="rewards-container">
-        <RewardItem title="Cheat Meal" money="10pts" image={burger}/>
-        <RewardItem title="1hr Video Game" money="10pts" image={controller}/>
-        <RewardItem title="Movie Night" money="10pts" image={movie}/>
-        <RewardItem title="Binge Show" money="10pts" image={show}/>
+        <RewardItem title="Cheat Meal" money="15" image={burger}/>
+        <RewardItem title="1hr Video Game" money="10" image={controller}/>
+        <RewardItem title="Movie Night" money="20" image={movie}/>
+        <RewardItem title="Binge Show" money="50" image={show}/>
       </div>
     </div>
   );

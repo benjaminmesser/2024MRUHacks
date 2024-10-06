@@ -12,7 +12,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   animation: topslide 1000ms;
-  background-color: #fd7e14;
+  background-color: #c0edff;
 }
 
 @keyframes topslide {
@@ -79,7 +79,7 @@
 }
 
 .qmodal button:last-child:hover {
-  background-color: #5a6268;
+  background-color: #aaaeb1;
 }
 
 .overlay {
@@ -106,7 +106,7 @@
 }
 
 .quest-item.medium.completed {
-  background-color: #fd7e14;
+  background-color: #b4b4b4;
 }
 
 

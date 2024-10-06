@@ -1,5 +1,6 @@
 import React from 'react';
 import avatar from '../assets/avatar.jpg';
+import coin from '../assets/coin.png';
 
 var levelNum = 0;
 var userXP = 0;
@@ -59,7 +60,7 @@ const Navbar = (props) => {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item d-flex align-items-center">
                 {/* Display Points */}
-                <span className="text-light me-4">Points: {props.userData.points}</span> {/* Added Points here */}
+                <span className="text-light me-4">{props.userData.points + " "}<img src={coin} style={{ width: '20px', verticalAlign: 'middle' }}/></span> {/* Added Points here */}
                 {/* Display Level */}
                 <span className="text-light me-2">Lvl {levelNum}</span>
                 {/* Progress Bar */}
