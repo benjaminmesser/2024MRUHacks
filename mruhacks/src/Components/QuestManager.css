@@ -16,10 +16,10 @@
 
 @keyframes topslide {
   from {
-    transform: translateX(-100%);
+    transform: translate(-50%, -150%); /* Start the modal above the viewport */
   }
   to {
-    transform: translateX(0%);
+    transform: translate(-50%, -50%); /* Slide to its centered position */
   }
 }
 
