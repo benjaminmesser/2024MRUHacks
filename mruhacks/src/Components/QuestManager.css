@@ -38,13 +38,6 @@
   margin-bottom: 20px;
 }
 
-/* Centered button container */
-.qmodal .button-container {
-  display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 10px; /* Space between buttons */
-}
-
 .qmodal button {
   padding: 8px 16px;
   border: none;
