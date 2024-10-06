@@ -1,34 +1,129 @@
-.modal {
-    display: block;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px; /* Smaller width */
-    height: 400px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
-  
-  button {
-    margin-top: 10px;
-  }
-  
+.qmodal {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.qmodal input[type="text"],
+.qmodal textarea,
+.qmodal select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.qmodal textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.qmodal select {
+  margin-bottom: 20px;
+}
+
+/* Centered button container */
+.qmodal .button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 10px; /* Space between buttons */
+}
+
+.qmodal button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.qmodal button:hover {
+  background-color: #0056b3;
+}
+
+.qmodal button:last-child {
+  background-color: #6c757d;
+}
+
+.qmodal button:last-child:hover {
+  background-color: #5a6268;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Styling for each quest item */
+.quest-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+/* Left side of the quest item - quest name */
+.quest-item .quest-name {
+  flex: 2; /* Takes up more space */
+}
+
+/* Middle side - quest difficulty */
+.quest-item .quest-difficulty {
+  flex: 1;
+  text-align: center; /* Center the difficulty */
+}
+
+/* Right side - checkbox and remove button container */
+.quest-item .action-buttons {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Checkbox and Remove button with same size */
+.quest-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Space between checkbox and button */
+}
+
+.quest-item button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quest-item button:hover {
+  background-color: #c82333;
+}

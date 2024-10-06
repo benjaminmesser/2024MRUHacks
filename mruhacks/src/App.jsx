@@ -6,6 +6,7 @@ import Main from './Components/Main';
 import GetData from './backend/database';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import RewardItem from './Components/RewardItem';
 
 
 function sleep(ms) {
