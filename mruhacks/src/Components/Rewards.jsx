@@ -99,31 +99,40 @@ const Rewards = () => {
           </div>
       )}
 
-      <ul>
-        {rewards.map((t, index) => (
-          <li key={index}>
-            <div className="reward-box">
-              <div className="text-section">
-                <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
-                  {t.description && <span>{t.description}</span>}
-                </span>
-                <br />
+<ul>
+  {rewards.map((t, index) => {
+    // Determine background color based on difficulty
+    const backgroundColor = t.difficulty === 'Easy'
+      ? 'lightgreen'
+      : t.difficulty === 'Medium'
+      ? 'lightyellow'
+      : 'lightcoral'; // 'lightcoral' is a close light red shade
+
+          return (
+            <li key={index}>
+              <div className="reward-box" style={{ backgroundColor }}> {/* Apply background color dynamically */}
+                <div className="text-section">
+                  <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
+                    {t.description && <span>{t.description}</span>}
+                  </span>
+                  <br />
+                </div>
+                <div className="difficulty-section">
+                  {t.difficulty}
+                </div>
+                <div className="action-section">
+                  <input
+                    type="checkbox"
+                    checked={t.completed}
+                    onChange={() => handleCheckboxChange(index)}
+                  />
+                  <button onClick={() => openModal(index)}>Edit</button>
+                  <button onClick={() => handleRemoveRewards(index)}>Remove</button>
+                </div>
               </div>
-              <div className="difficulty-section">
-                {t.difficulty}
-              </div>
-              <div className="action-section">
-                <input
-                  type="checkbox"
-                  checked={t.completed}
-                  onChange={() => handleCheckboxChange(index)}
-                />
-                <button onClick={() => openModal(index)}>Edit</button>
-                <button onClick={() => handleRemoveRewards(index)}>Remove</button>
-              </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
 
       <div className="rewards-container">
