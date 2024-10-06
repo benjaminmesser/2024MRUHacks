@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Rewards.css';
 import RewardItem from './RewardItem';
-import {avatar , burger, controller, movie, show } from '../assets/';
+import {burger, controller, movie, show } from '../assets/';
 const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
