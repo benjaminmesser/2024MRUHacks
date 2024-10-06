@@ -1,0 +1,10 @@
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure elements are vertically aligned */
+  margin-top: 10px;
+}
+
+.money {
+  margin-left: 10px; /* Add some space between the button and the money value */
+}
