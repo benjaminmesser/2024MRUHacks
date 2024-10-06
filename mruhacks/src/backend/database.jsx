@@ -1,7 +1,20 @@
 import  {createClient} from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
-const supabase = createClient("https://ifzgmtvnlimxhzupprfz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmemdtdHZubGlteGh6dXBwcmZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwOTk4MjQsImV4cCI6MjA0MzY3NTgyNH0.PQlh_1OPwPulJsrDmu5UogQIZPtwJTrTxAuuGcnYA_w");
+
+// const supabase = createClient("https://ifzgmtvnlimxhzupprfz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmemdtdHZubGlteGh6dXBwcmZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwOTk4MjQsImV4cCI6MjA0MzY3NTgyNH0.PQlh_1OPwPulJsrDmu5UogQIZPtwJTrTxAuuGcnYA_w");
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBXgiatu0PckCY4ulUDmSql291lhEjtSho",
+    authDomain: "questhub-6dfb0.firebaseapp.com",
+    projectId: "questhub-6dfb0",
+    storageBucket: "questhub-6dfb0.appspot.com",
+    messagingSenderId: "941843742603",
+    appId: "1:941843742603:web:21d5edc6bdc161fc5bf98e",
+    measurementId: "G-794EV992ZL"
+  };
+
 
 function GetData(userId, tableName) {
     const [data, setData] = useState([]);
@@ -11,6 +24,8 @@ function GetData(userId, tableName) {
     }, []);
 
     async function getData() {
+        // const { data } = (async () => await supabase)();
+        
         const { data } = await supabase
         .from(tableName)
         .select()
@@ -19,20 +34,30 @@ function GetData(userId, tableName) {
         setData(data);
         console.log("Printing data?");
         console.log(data);
+    // function getData() {
+    //     supabase
+    //     .from(tableName)
+    //     .select()
+    //     .eq('userId', userId)
+    //     .then(response => {
+    //         setData(response.data); // Handle the returned data
+    //         console.log("Printing data?");
+    //         console.log(response.data); // Log the data to check
+    //     });
+    // }
+
     }
 
     return data;
     // return (
-    // <ul>
-    //     {quest.map((questr) => (
-    //         <li key={quest.questName}>{questr.questName}</li>
-    //     ))}
-    // </ul>
+    //     quest.map((questr) => (
+    //         key=quest.questName,questr.questName
+    //     ))
     // );
 }
 
 function InsertUser(userRow) {
-    const [user, setUser] = useState([]);
+    const [data, setUser] = useState([]);
 
     useEffect(() => {
         getUser();
@@ -56,7 +81,7 @@ function InsertUser(userRow) {
 }
 
 function InsertQuest(questRow) {
-    const [quests, setQuest] = useState([]);
+    const [data, setQuest] = useState([]);
 
     useEffect(() => {
         getQuests();
@@ -80,7 +105,7 @@ function InsertQuest(questRow) {
 }
 
 function InsertReward(rewardRow) {
-    const [reward, setReward] = useState([]);
+    const [data, setReward] = useState([]);
 
     useEffect(() => {
         getRewards();
@@ -105,7 +130,7 @@ function InsertReward(rewardRow) {
     );
 }
 function UpdateQuest(questRow) {
-    const [quest, setQuest] = useState([]);
+    const [data, setQuest] = useState([]);
 
     useEffect(() => {
         updateQuests();
@@ -126,7 +151,7 @@ function UpdateQuest(questRow) {
 }
 
 function UpdateReward(rewardRow) {
-    const [reward, setReward] = useState([]);
+    const [data, setReward] = useState([]);
 
     useEffect(() => {
         updateReward();
@@ -146,7 +171,7 @@ function UpdateReward(rewardRow) {
 }
 
 function UpdateUser(userRow) {
-    const [user, setUser] = useState([]);
+    const [data, setUser] = useState([]);
 
     useEffect(() => {
         updateUser();
@@ -168,6 +193,24 @@ function UpdateUser(userRow) {
     
 }
 
+function DeleteData(userId,tableName) {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        deleteData();
+    }, []);
+
+    async function deleteData() {
+        const { data } = await supabase
+        .from(tableName)
+        .delete()
+        .eq('userId', userId)
+        
+        setData(data);
+
+    }
+    
+}
 
 
 
