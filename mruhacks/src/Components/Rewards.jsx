@@ -124,11 +124,7 @@ const Rewards = () => {
                   {t.difficulty}
                 </div>
                 <div className="action-section">
-                  <input
-                    type="checkbox"
-                    checked={t.completed}
-                    onChange={() => handleCheckboxChange(index)}
-                  />
+                  <button onClick={() => handleCheckboxChange(index)} checked={t.completed}>Buy</button>
                   <button onClick={() => openModal(index)}>Edit</button>
                   <button onClick={() => handleRemoveRewards(index)}>Remove</button>
                 </div>
