@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Rewards.css';
 import RewardItem from './RewardItem';
-
+import {avatar , burger, controller, movie, show } from '../assets/';
 const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
@@ -123,10 +123,10 @@ const Rewards = () => {
       </ul>
 
       <div className="rewards-container">
-        <RewardItem title="Cheat Meal" money="10pts" />
-        <RewardItem title="1hr Video Game" money="10pts" />
-        <RewardItem title="Movie Night" money="10pts" />
-        <RewardItem title="Binge Show" money="10pts" />
+        <RewardItem title="Cheat Meal" money="10pts" image={burger}/>
+        <RewardItem title="1hr Video Game" money="10pts" image={controller}/>
+        <RewardItem title="Movie Night" money="10pts" image={movie}/>
+        <RewardItem title="Binge Show" money="10pts" image={show}/>
       </div>
     </div>
   );
