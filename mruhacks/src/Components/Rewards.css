@@ -12,6 +12,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   animation: topslide 1000ms;
+  background-color:lightgreen
 }
 
 .modal select {
@@ -21,6 +22,8 @@
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: white;
+  color: black;
 }
 
 @keyframes topslide {
@@ -35,7 +38,7 @@
 .reward-box {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align to the top */
+  align-items: center; /* Center items vertically */
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px 0;
@@ -46,32 +49,38 @@
   overflow-wrap: break-word;
 }
 
-/* Limit the width of the text section */
 .reward-box .text-section {
-  flex: 1; /* Take up available space */
-  margin-right: 20px; /* Space between text and action section */
-  max-width: 70%; /* Set a maximum width (adjust as needed) */
+  flex-basis: 40%; /* Take up 40% of the width */
+  margin-right: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  text-align: left; /* Align text to the left */
+  max-width: 30ch;
 }
 
-/* Vertically stack and align the checkbox and buttons */
+.reward-box .difficulty-section {
+  flex-basis: 40%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .reward-box .action-section {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 10px; /* Space between the checkbox and buttons */
+  align-items: center; /* Center checkbox and buttons */
+  justify-content: center; /* Center vertically */
+  gap: 10px; /* Space between elements */
 }
 
-/* Make the checkbox bigger */
 .reward-box input[type="checkbox"] {
   transform: scale(1.5); /* Make the checkbox bigger */
 }
 
-/* Make the buttons smaller */
 .reward-box button {
-  padding: 5px 10px; /* Smaller padding for smaller buttons */
-  font-size: 12px; /* Reduce font size */
+  padding: 5px 10px;
+  font-size: 12px;
   margin: 0;
 }
 
@@ -112,4 +121,6 @@ li {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: white;
+  color: black;
 }

@@ -78,7 +78,6 @@ const Rewards = () => {
       </div>
       {isModalOpen && (
         <div className="modal">
-          <div className="modal-content">
             <textarea
               value={rewardsDescription}
               onChange={(e) => setRewardsDescription(e.target.value)}
@@ -98,7 +97,6 @@ const Rewards = () => {
             </button>
             <button onClick={closeModal}>Cancel</button>
           </div>
-        </div>
       )}
 
       <ul>
@@ -110,7 +108,9 @@ const Rewards = () => {
                   {t.description && <span>{t.description}</span>}
                 </span>
                 <br />
-                <small>Difficulty: {t.difficulty}</small> {/* Display the difficulty */}
+              </div>
+              <div className="difficulty-section">
+                {t.difficulty}
               </div>
               <div className="action-section">
                 <input
