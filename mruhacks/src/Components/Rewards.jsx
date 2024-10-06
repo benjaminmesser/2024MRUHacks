@@ -55,7 +55,13 @@ const Rewards = () => {
 
   const handleCheckboxChange = (index) => {
     const updatedRewards = rewards.map((t, i) => {
+        
       if (i === index) {
+        if (t.completed){
+            SetXPNum(GetXPNum() + difficulty);
+        } else {
+            SetXPNum(GetXPNum() + difficulty);
+        }
         if (!t.completed) {
           alert(`You bought the reward: ${t.description}`);
           return { ...t, completed: true, completionTime: new Date().toLocaleString() };

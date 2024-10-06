@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './QuestManager.css';
 
+import { GetXPNum, SetXPNum } from './Navbar';
+
 const QuestManager = ({ selectedDate }) => {
   const [questName, setQuestName] = useState('');
   const [questDescription, setQuestDescription] = useState('');
@@ -49,9 +51,20 @@ const QuestManager = ({ selectedDate }) => {
 
   const handleCheckboxChange = (index) => {
     setQuestsByDate((prevState) => {
+        var difficulty_mod = 1
       const questsForDate = prevState[selectedDate] || [];
       const updatedQuests = questsForDate.map((quest, i) => {
         if (i === index) {
+            if (quest.difficulty.includes('Medium')){
+                difficulty_mod = 2
+            } else if (quest.difficulty.includes('Hard')){
+                difficulty_mod = 3
+            }
+            if (quest.completed){
+                SetXPNum(GetXPNum() + difficulty_mod * 5);
+            } else {
+                SetXPNum(GetXPNum() + difficulty_mod * 5);
+            }
           return {
             ...quest,
             completed: !quest.completed,

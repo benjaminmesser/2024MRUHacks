@@ -4,8 +4,8 @@ import QuestManager from './Components/QuestManager';
 import Calendar from './Components/Calender';
 import Main from './Components/Main';
 import GetData from './backend/database';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
 import RewardItem from './Components/RewardItem';
 
 //import sample data from text files
@@ -22,20 +22,20 @@ function sleep(ms) {
   }
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBXgiatu0PckCY4ulUDmSql291lhEjtSho",
-  authDomain: "questhub-6dfb0.firebaseapp.com",
-  projectId: "questhub-6dfb0",
-  storageBucket: "questhub-6dfb0.appspot.com",
-  messagingSenderId: "941843742603",
-  appId: "1:941843742603:web:21d5edc6bdc161fc5bf98e",
-  measurementId: "G-794EV992ZL"
-};
-const cong = initializeApp(firebaseConfig);
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBXgiatu0PckCY4ulUDmSql291lhEjtSho",
+//   authDomain: "questhub-6dfb0.firebaseapp.com",
+//   projectId: "questhub-6dfb0",
+//   storageBucket: "questhub-6dfb0.appspot.com",
+//   messagingSenderId: "941843742603",
+//   appId: "1:941843742603:web:21d5edc6bdc161fc5bf98e",
+//   measurementId: "G-794EV992ZL"
+// };
+// const cong = initializeApp(firebaseConfig);
   
 
 function App() {
-  const analytics = getAnalytics(cong);
+//   const analytics = getAnalytics(cong);
   //(async () => await GetData(0, 'quest'))();
 //   var quest_data = GetData(0, 'quest');
 //   sleep(5000);

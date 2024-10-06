@@ -1,24 +1,24 @@
-import  {createClient} from "@supabase/supabase-js";
+// import  {createClient} from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
-import { doc, setDoc } from "firebase/firestore";
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+// import { getDatabase, ref, onValue } from "firebase/database";
+// import { doc, setDoc } from "firebase/firestore";
+// import { initializeApp } from 'firebase/app';
+// import { getFirestore } from 'firebase/firestore';
 
 
 // const supabase = createClient("https://ifzgmtvnlimxhzupprfz.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlmemdtdHZubGlteGh6dXBwcmZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwOTk4MjQsImV4cCI6MjA0MzY3NTgyNH0.PQlh_1OPwPulJsrDmu5UogQIZPtwJTrTxAuuGcnYA_w");
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBXgiatu0PckCY4ulUDmSql291lhEjtSho",
-    authDomain: "questhub-6dfb0.firebaseapp.com",
-    projectId: "questhub-6dfb0",
-    storageBucket: "questhub-6dfb0.appspot.com",
-    messagingSenderId: "941843742603",
-    appId: "1:941843742603:web:21d5edc6bdc161fc5bf98e",
-    measurementId: "G-794EV992ZL"
-  };
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// const firebaseConfig = {
+//     apiKey: "AIzaSyBXgiatu0PckCY4ulUDmSql291lhEjtSho",
+//     authDomain: "questhub-6dfb0.firebaseapp.com",
+//     projectId: "questhub-6dfb0",
+//     storageBucket: "questhub-6dfb0.appspot.com",
+//     messagingSenderId: "941843742603",
+//     appId: "1:941843742603:web:21d5edc6bdc161fc5bf98e",
+//     measurementId: "G-794EV992ZL"
+//   };
+// const app = initializeApp(firebaseConfig);
+// const db = getFirestore(app);
 // await setDoc(doc(db, "user", "0")) {}
 //  
 function GetData(userId, tableName) {
