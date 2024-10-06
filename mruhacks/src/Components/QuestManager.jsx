@@ -7,8 +7,7 @@ const QuestManager = ({ selectedDate }) => {
   const [questDifficulty, setQuestDifficulty] = useState('Easy');
   const [questsByDate, setQuestsByDate] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isDescModalOpen, setIsDescModalOpen] = useState(false);
-  const [selectedQuestDesc, setSelectedQuestDesc] = useState('');
+  const [selectedQuest, setSelectedQuest] = useState(null); 
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -21,14 +20,8 @@ const QuestManager = ({ selectedDate }) => {
     setQuestDifficulty('Easy');
   };
 
-  const openDescModal = (description) => {
-    setSelectedQuestDesc(description);
-    setIsDescModalOpen(true);
-  };
-
-  const closeDescModal = () => {
-    setIsDescModalOpen(false);
-    setSelectedQuestDesc('');
+  const showDescription = (quest) => {
+    setSelectedQuest(quest); 
   };
 
   const handleAddQuest = () => {
@@ -93,6 +86,7 @@ const QuestManager = ({ selectedDate }) => {
         <h3>Quests</h3>
         <button onClick={openModal}>Add Quest</button>
       </div>
+
       {isModalOpen && (
         <div className="qmodal">
           <input
@@ -118,13 +112,6 @@ const QuestManager = ({ selectedDate }) => {
             <button onClick={handleAddQuest}>Add Quest</button>
             <button onClick={closeModal}>Cancel</button>
           </div>
-        </div>
-      )}
-
-      {isDescModalOpen && (
-        <div className="desc-modal">
-          <p>{selectedQuestDesc}</p>
-          <button onClick={closeDescModal}>Close</button>
         </div>
       )}
 
@@ -155,12 +142,20 @@ const QuestManager = ({ selectedDate }) => {
               {quest.difficulty}
             </div>
             <div className="action-buttons">
-              <button onClick={() => openDescModal(quest.description)}>Desc</button>
+              <button onClick={() => showDescription(quest)}>Desc</button>
               <button onClick={() => handleRemoveQuest(index)}>Remove</button>
             </div>
           </li>
         ))}
       </ul>
+
+      {selectedQuest && (
+        <div className="desc-box" style={{ marginTop: '16px', padding: '10px', background: '#f0f0f0' }}>
+          <h4>{selectedQuest.name} Description</h4>
+          <p>{selectedQuest.description}</p>
+          <button onClick={() => setSelectedQuest(null)}>Close</button>
+        </div>
+      )}
     </div>
   );
 };
