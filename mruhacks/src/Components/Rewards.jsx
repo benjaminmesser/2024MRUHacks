@@ -105,12 +105,12 @@ const Rewards = () => {
         ))}
       </ul>
       <div style={{ display: 'flex', gap: '10px' }}>
-        <RewardItem title="Cheat Meal" money="10" />
-        <RewardItem title="1hr Video Game" money="10" />
+        <RewardItem title="Cheat Meal" money="10pts" />
+        <RewardItem title="1hr Video Game" money="10pts" />
       </div>
       <div style={{ display: 'flex', gap: '10px' }}>
-        <RewardItem title="Movie Night" money="10" />
-        <RewardItem title="Binge Show" money="10" />
+        <RewardItem title="Movie Night" money="10pts" />
+        <RewardItem title="Binge Show" money="10pts" />
       </div>
     </div>
   );

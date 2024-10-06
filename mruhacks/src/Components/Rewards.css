@@ -56,12 +56,6 @@
   margin: 0;
 }
 
-/* Optional: Ensure that reward-box does not overflow */
-.reward-box {
-  overflow: hidden;
-  box-sizing: border-box; /* Include padding and borders in width */
-}
-
 ul {
   list-style: none; /* Remove bullet points */
   margin: 0; /* Remove default margin */
