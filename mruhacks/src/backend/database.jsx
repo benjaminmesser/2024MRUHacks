@@ -17,9 +17,9 @@ const firebaseConfig = {
     measurementId: "G-794EV992ZL"
   };
 const app = initializeApp(firebaseConfig);
-
-// await setDoc(doc(db, "user", "0"))
-
+const db = getFirestore(app);
+// await setDoc(doc(db, "user", "0")) {}
+//  
 function GetData(userId, tableName) {
     const [data, setData] = useState([]);
 
