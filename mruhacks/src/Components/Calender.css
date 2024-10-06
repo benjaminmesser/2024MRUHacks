@@ -1,5 +1,39 @@
 .react-calender {
   width: 100% !important;
   cursor: pointer; /* Ensures the cursor is a pointer when hovering over the input */
+}
 
+/* Existing rule for setting weekends to red */
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+
+/* New rule to center the weekday names */
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+  text-align: center; /* Center the text */
+}
+
+/* Highlight the current day */
+.react-calendar__tile--now {
+  background: #6fcdff3b; /* Light blue background for the current day */
+  border: 2px solid #5882b983; /* Optional: Add a border for better visibility */
+}
+
+/* Highlight the selected date */
+.react-calendar__tile--active {
+  background: #006edc; /* Blue background for the selected date */
+  color: white; /* White text color for better contrast */
+}
+
+/* Center the top part (month and arrows) */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center; /* Center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
 }
