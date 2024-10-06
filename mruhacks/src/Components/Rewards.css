@@ -4,7 +4,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px; /* Smaller width */
+  width: 300px; 
   height: auto;
   background-color: white;
   padding: 20px;
@@ -28,17 +28,17 @@
 
 @keyframes topslide {
   from {
-    transform: translate(-50%, -150%); /* Start the modal above the viewport */
+    transform: translate(-50%, -150%);
   }
   to {
-    transform: translate(-50%, -50%); /* Slide to its centered position */
+    transform: translate(-50%, -50%);
   }
 }
 
 .reward-box {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Center items vertically */
+  align-items: center; 
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px 0;
@@ -50,11 +50,11 @@
 }
 
 .reward-box .text-section {
-  flex-basis: 40%; /* Take up 40% of the width */
+  flex-basis: 40%; 
   margin-right: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  text-align: left; /* Align text to the left */
+  text-align: left;
   max-width: 30ch;
 }
 
@@ -69,13 +69,13 @@
 .reward-box .action-section {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center checkbox and buttons */
-  justify-content: center; /* Center vertically */
-  gap: 10px; /* Space between elements */
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px;
 }
 
 .reward-box input[type="checkbox"] {
-  transform: scale(1.5); /* Make the checkbox bigger */
+  transform: scale(1.5);
 }
 
 .reward-box button {
@@ -85,9 +85,9 @@
 }
 
 ul {
-  list-style: none; /* Remove bullet points */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
 }
 
 li {
@@ -98,18 +98,18 @@ li {
 
 .header {
   display: flex;
-  align-items: center; /* Vertically align heading and button */
-  justify-content: space-between; /* Ensure spacing between the two items */
+  align-items: center; 
+  justify-content: space-between; 
   margin-bottom: 30px;
 }
 
 .header h3 {
-  margin: 0; /* Remove default margin from h3 */
+  margin: 0; 
 }
 
 .header button {
-  margin-left: 10px; /* Optional: add some space between the heading and the button */
-  font-size: 14px; /* Adjust the font size to match your design */
+  margin-left: 10px; 
+  font-size: 14px; 
 }
 
 

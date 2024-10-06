@@ -9,42 +9,39 @@ import show from '../assets/show.jpg';
 const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
-  const [rewardDifficulty, setRewardDifficulty] = useState('Easy'); // State for difficulty
+  const [rewardDifficulty, setRewardDifficulty] = useState('Easy'); 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editIndex, setEditIndex] = useState(null); // New state for tracking edit index
+  const [editIndex, setEditIndex] = useState(null); 
 
   const openModal = (index = null) => {
     setIsModalOpen(true);
     if (index !== null) {
-      // If editing, populate the modal with existing reward's description and difficulty
       setRewardsDescription(rewards[index].description);
-      setRewardDifficulty(rewards[index].difficulty); // Populate the difficulty
-      setEditIndex(index); // Set the index being edited
+      setRewardDifficulty(rewards[index].difficulty);
+      setEditIndex(index); 
     }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setRewardsDescription('');
-    setRewardDifficulty('Easy'); // Reset to default
-    setEditIndex(null); // Clear edit index on close
+    setRewardDifficulty('Easy'); 
+    setEditIndex(null); 
   };
 
   const handleAddRewards = () => {
     if (rewardsDescription.trim()) {
       if (editIndex !== null) {
-        // If editing, update the reward at the specific index
         const updatedRewards = rewards.map((t, i) =>
           i === editIndex ? { ...t, description: rewardsDescription, difficulty: rewardDifficulty } : t
         );
         setRewards(updatedRewards);
       } else {
-        // If not editing, add a new reward
         setRewards([
           ...rewards,
           {
             description: rewardsDescription,
-            difficulty: rewardDifficulty, // Include the selected difficulty
+            difficulty: rewardDifficulty, 
             completed: false,
             completionTime: null,
           },
@@ -60,18 +57,15 @@ const Rewards = () => {
     const updatedRewards = rewards.map((t, i) => {
       if (i === index) {
         if (!t.completed) {
-          // If the reward is being marked as completed (checkbox checked)
           alert(`You bought the reward: ${t.description}`);
           return { ...t, completed: true, completionTime: new Date().toLocaleString() };
         } else {
-          // If the reward is being unmarked as completed (checkbox unchecked)
           return { ...t, completed: false, completionTime: null };
         }
       }
       return t;
     });
 
-    // Reset checkbox by marking all as not completed (uncheck it)
     setRewards(updatedRewards.map((t, i) => (i === index ? { ...t, completed: false } : t)));
   };
 
@@ -95,15 +89,15 @@ const Rewards = () => {
               maxLength={200}
             ></textarea>
             <select
-              value={rewardDifficulty} // Bind select value to state
-              onChange={(e) => setRewardDifficulty(e.target.value)} // Update difficulty
+              value={rewardDifficulty} 
+              onChange={(e) => setRewardDifficulty(e.target.value)} 
             >
               <option value="Easy">Easy</option>
               <option value="Medium">Medium</option>
               <option value="Hard">Hard</option>
             </select>
             <button onClick={handleAddRewards}>
-              {editIndex !== null ? 'Save Changes' : 'Add Reward'} {/* Change button text */}
+              {editIndex !== null ? 'Save Changes' : 'Add Reward'} 
             </button>
             <button onClick={closeModal}>Cancel</button>
           </div>
@@ -111,16 +105,15 @@ const Rewards = () => {
 
 <ul>
   {rewards.map((t, index) => {
-    // Determine background color based on difficulty
     const backgroundColor = t.difficulty === 'Easy'
       ? 'lightgreen'
       : t.difficulty === 'Medium'
       ? 'lightyellow'
-      : 'lightcoral'; // 'lightcoral' is a close light red shade
+      : 'lightcoral'; 
 
           return (
             <li key={index}>
-              <div className="reward-box" style={{ backgroundColor }}> {/* Apply background color dynamically */}
+              <div className="reward-box" style={{ backgroundColor }}> 
                 <div className="text-section">
                   <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
                     {t.description && <span>{t.description}</span>}

@@ -7,7 +7,6 @@ const Navbar = (props) => {
   console.log(props.userData);
   console.log('PROPS:');
   console.log(props);
-//   console.log(props.userData[0].xp);
   
     return (
       <div>

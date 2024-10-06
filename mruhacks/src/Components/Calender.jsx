@@ -7,7 +7,7 @@ const CalendarComponent = ({ onDateChange }) => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    onDateChange(date); // Call the callback function with the selected date
+    onDateChange(date); 
   };
 
   return (

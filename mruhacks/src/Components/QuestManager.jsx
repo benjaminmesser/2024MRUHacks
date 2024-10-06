@@ -138,7 +138,7 @@ const QuestManager = ({ selectedDate }) => {
                 : quest.difficulty === 'Medium'
                 ? 'medium'
                 : 'hard'
-            } ${quest.completed ? 'completed' : ''}`} // Adds 'completed' class if the quest is completed
+            } ${quest.completed ? 'completed' : ''}`}
           >
             <div className="quest-name" style={{ display: 'flex', alignItems: 'center' }}>
               <input

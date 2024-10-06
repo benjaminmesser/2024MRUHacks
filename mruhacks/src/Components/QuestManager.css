@@ -17,10 +17,10 @@
 
 @keyframes topslide {
   from {
-    transform: translate(-50%, -150%); /* Start the modal above the viewport */
+    transform: translate(-50%, -150%); 
   }
   to {
-    transform: translate(-50%, -50%); /* Slide to its centered position */
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -92,31 +92,30 @@
   z-index: 999;
 }
 
-/* Easy Difficulty */
 .quest-item.easy {
-  background-color: #d4edda; /* Light green for Easy (not completed) */
+  background-color: #d4edda; 
 }
 
 .quest-item.easy.completed {
-  background-color: #28a745; /* Dark green for completed Easy */
+  background-color: #28a745; 
 }
 
-/* Medium Difficulty */
+
 .quest-item.medium {
-  background-color: #ffeeba; /* Light orange for Medium (not completed) */
+  background-color: #ffeeba; 
 }
 
 .quest-item.medium.completed {
-  background-color: #fd7e14; /* Dark orange for completed Medium */
+  background-color: #fd7e14;
 }
 
-/* Hard Difficulty */
+
 .quest-item.hard {
-  background-color: #f8d7da; /* Light red for Hard (not completed) */
+  background-color: #f8d7da; 
 }
 
 .quest-item.hard.completed {
-  background-color: #dc3545; /* Dark red for completed Hard */
+  background-color: #dc3545; 
 }
 
 
@@ -127,28 +126,25 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  transition: background-color 0.3s ease; 
 }
 
-
-/* Left side of the quest item - quest name */
 .quest-item .quest-name {
-  flex-basis: 30%; /* Adjust this value as needed */
-  flex-grow: 0; /* Prevents growing beyond the set width */
-  flex-shrink: 0; /* Prevents shrinking below the set width */
-  max-width: 15ch; /* Maximum width to allow wrapping after 10 characters */
-  overflow-wrap: break-word; /* Allows text wrapping */
-  word-wrap: break-word; /* For older browsers */
+  flex-basis: 30%; 
+  flex-grow: 0; 
+  flex-shrink: 0; 
+  max-width: 15ch; 
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
 }
 
 .quest-item .quest-name span {
-  display: block; /* Make it block level so it can wrap */
-  max-width: 100%; /* Ensures it does not exceed the parent width */
-  overflow-wrap: break-word; /* Allow wrapping */
-  word-wrap: break-word; /* For older browsers */
+  display: block; 
+  max-width: 100%; 
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
 }
 
-/* Flexbox adjustments */
 .quest-item .quest-difficulty {
   flex-basis: 40%;
   text-align: center;
@@ -165,15 +161,14 @@
   gap: 3px;
 }
 
-/* Left side - checkbox */
 .quest-item input[type="checkbox"] {
   width: 20px;
   height: 20px;
   margin-right: 10px;
-  flex-basis: 10%; /* Take up 10% of the space */
+  flex-basis: 10%; 
   display: flex;
-  justify-content: center; /* Horizontally center the checkbox */
-  align-items: center; /* Vertically center the checkbox */
+  justify-content: center; 
+  align-items: center; 
 }
 
 .quest-item button {
@@ -193,10 +188,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px; /* Adds space between the header and the boxes */
+  margin-bottom: 30px;
 }
 
 .qheader button {
-  margin-left: 10px; /* Optional: add some space between the heading and the button */
-  font-size: 14px; /* Adjust the font size to match your design */
+  margin-left: 10px; 
+  font-size: 14px; 
 }

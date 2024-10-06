@@ -1,11 +1,11 @@
 /* Container for the cards */
 .rewards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Two cards per row, responsive */
-  padding: 0px; /* Add padding around the container */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+  padding: 0px; 
 }
 
-/* Card styling */
+
 .card {
   display: flex;
   flex-direction: column;
@@ -17,11 +17,10 @@
   background-color: #f9f9f9;
   margin: 0.5rem;
   height: auto;
-  width: auto; /* Ensure cards take full available width within their grid column */
+  width: auto; 
   position: relative;
 }
 
-/* Card image */
 .card img {
   width: 90px;
   height: 90px;
@@ -30,7 +29,6 @@
   margin-bottom: 15px;
 }
 
-/* Card title */
 .card-title {
   margin: 0;
   height: 30px;
@@ -39,7 +37,6 @@
   text-align: center;
 }
 
-/* Button container */
 .button-container {
   position: absolute;
   bottom: 0px;
