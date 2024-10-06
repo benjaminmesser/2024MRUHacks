@@ -4,6 +4,7 @@ import QuestManager from './Components/QuestManager';
 import Calendar from './Components/Calender';
 import Main from './Components/Main';
 import GetData from './backend/database';
+import RewardItem from './Components/RewardItem';
 
 function App() {
   var quest_data = GetData(0, 'quest');
