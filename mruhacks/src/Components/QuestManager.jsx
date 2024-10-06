@@ -14,7 +14,7 @@ const QuestManager = ({ selectedDate }) => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setQuestName(''); // Clear form on close
+    setQuestName('');
     setQuestDescription('');
     setQuestDifficulty('Easy');
   };
@@ -27,14 +27,14 @@ const QuestManager = ({ selectedDate }) => {
         difficulty: questDifficulty,
         completed: false,
         completionTime: null,
-        date: selectedDate
+        date: selectedDate,
       };
 
-      setQuestsByDate(prevState => {
+      setQuestsByDate((prevState) => {
         const questsForDate = prevState[selectedDate] || [];
         return {
           ...prevState,
-          [selectedDate]: [...questsForDate, newQuest]
+          [selectedDate]: [...questsForDate, newQuest],
         };
       });
 
@@ -43,32 +43,32 @@ const QuestManager = ({ selectedDate }) => {
   };
 
   const handleCheckboxChange = (index) => {
-    setQuestsByDate(prevState => {
+    setQuestsByDate((prevState) => {
       const questsForDate = prevState[selectedDate] || [];
       const updatedQuests = questsForDate.map((quest, i) => {
         if (i === index) {
           return {
             ...quest,
             completed: !quest.completed,
-            completionTime: !quest.completed ? new Date().toLocaleString() : null
+            completionTime: !quest.completed ? new Date().toLocaleString() : null,
           };
         }
         return quest;
       });
       return {
         ...prevState,
-        [selectedDate]: updatedQuests
+        [selectedDate]: updatedQuests,
       };
     });
   };
 
   const handleRemoveQuest = (index) => {
-    setQuestsByDate(prevState => {
+    setQuestsByDate((prevState) => {
       const questsForDate = prevState[selectedDate] || [];
       const updatedQuests = questsForDate.filter((_, i) => i !== index);
       return {
         ...prevState,
-        [selectedDate]: updatedQuests
+        [selectedDate]: updatedQuests,
       };
     });
   };
@@ -109,29 +109,38 @@ const QuestManager = ({ selectedDate }) => {
         </div>
       )}
 
-      <ul>
-        {filteredQuests.map((quest, index) => (
-          <li key={index} className="quest-item">
-            <div className="quest-name" style={{ display: 'flex', alignItems: 'center' }}>
-              <input
-                type="checkbox"
-                checked={quest.completed}
-                onChange={() => handleCheckboxChange(index)}
-                style={{ marginRight: '8px' }}
-              />
-              <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
-                {quest.name}
-              </span>
-            </div>
-            <div className="quest-difficulty">
-              {quest.difficulty}
-            </div>
-            <div className="action-buttons">
-              <button onClick={() => handleRemoveQuest(index)}>Remove</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+    <ul>
+      {filteredQuests.map((quest, index) => (
+        <li
+          key={index}
+          className={`quest-item ${
+            quest.difficulty === 'Easy'
+              ? 'easy'
+              : quest.difficulty === 'Medium'
+              ? 'medium'
+              : 'hard'
+          } ${quest.completed ? 'completed' : ''}`} // Adds 'completed' class if the quest is completed
+        >
+          <div className="quest-name" style={{ display: 'flex', alignItems: 'center' }}>
+            <input
+              type="checkbox"
+              checked={quest.completed}
+              onChange={() => handleCheckboxChange(index)}
+              style={{ marginRight: '8px' }}
+            />
+            <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
+              {quest.name}
+            </span>
+          </div>
+          <div className="quest-difficulty">
+            {quest.difficulty}
+          </div>
+          <div className="action-buttons">
+            <button onClick={() => handleRemoveQuest(index)}>Remove</button>
+          </div>
+        </li>
+      ))}
+    </ul>
     </div>
   );
 };

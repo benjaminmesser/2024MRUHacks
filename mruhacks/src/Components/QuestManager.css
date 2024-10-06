@@ -45,7 +45,7 @@
 }
 
 .qmodal select {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .qmodal button {
@@ -56,6 +56,7 @@
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
 .qmodal button:hover {
@@ -80,16 +81,42 @@
   z-index: 999;
 }
 
-/* Styling for each quest item */
+/* Easy Difficulty */
+.quest-item.easy {
+  background-color: #d4edda; /* Light green for Easy (not completed) */
+}
+
+.quest-item.easy.completed {
+  background-color: #28a745; /* Dark green for completed Easy */
+}
+
+/* Medium Difficulty */
+.quest-item.medium {
+  background-color: #ffeeba; /* Light orange for Medium (not completed) */
+}
+
+.quest-item.medium.completed {
+  background-color: #fd7e14; /* Dark orange for completed Medium */
+}
+
+/* Hard Difficulty */
+.quest-item.hard {
+  background-color: #f8d7da; /* Light red for Hard (not completed) */
+}
+
+.quest-item.hard.completed {
+  background-color: #dc3545; /* Dark red for completed Hard */
+}
+
+
 .quest-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f9fa;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 
@@ -110,26 +137,32 @@
   word-wrap: break-word; /* For older browsers */
 }
 
-/* Middle side - quest difficulty */
+/* Flexbox adjustments */
 .quest-item .quest-difficulty {
-  flex-basis: 20%; /* Takes 20% of the width */
-  text-align: center; /* Center the difficulty */
+  flex-basis: 40%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Right side - checkbox and remove button container */
 .quest-item .action-buttons {
   display: flex;
+  flex-basis: 20%;
+  justify-content: center;
   align-items: center;
-  flex-basis: 40%; /* Takes the remaining 40% */
-  justify-content: flex-end; /* Aligns the checkbox and button to the right */
 }
-/* Checkbox and Remove button with same size */
+
+/* Left side - checkbox */
 .quest-item input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  margin-right: 10px; /* Space between checkbox and button */
+  margin-right: 10px;
+  flex-basis: 10%; /* Take up 10% of the space */
+  display: flex;
+  justify-content: center; /* Horizontally center the checkbox */
+  align-items: center; /* Vertically center the checkbox */
 }
-
 
 .quest-item button {
   padding: 5px 10px;
