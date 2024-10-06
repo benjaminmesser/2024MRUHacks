@@ -72,6 +72,7 @@ const Rewards = () => {
               value={rewardsDescription}
               onChange={(e) => setRewardsDescription(e.target.value)}
               placeholder="Enter the reward"
+              maxLength={100}
             ></textarea>
             <button onClick={handleAddRewards} > 
               {editIndex !== null ? "Save Changes" : "Add Reward"} {/* Change button text */}
