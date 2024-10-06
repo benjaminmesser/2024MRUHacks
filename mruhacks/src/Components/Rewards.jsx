@@ -62,7 +62,7 @@ const Rewards = () => {
     <div>
       <div className="header">
         <h3>Rewards</h3>
-        <button onClick={() => openModal()} >Add Reward</button>
+        <button onClick={() => openModal()}>Add Reward</button>
       </div>
       {isModalOpen && (
         <div className="modal">
@@ -72,7 +72,7 @@ const Rewards = () => {
               value={rewardsDescription}
               onChange={(e) => setRewardsDescription(e.target.value)}
               placeholder="Enter the reward"
-              maxLength={100}
+              maxLength={50}
             ></textarea>
             <button onClick={handleAddRewards} > 
               {editIndex !== null ? "Save Changes" : "Add Reward"} {/* Change button text */}

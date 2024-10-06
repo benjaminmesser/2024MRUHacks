@@ -32,18 +32,3 @@
     margin-top: 10px;
   }
   
-  .header {
-  display: flex;
-  align-items: center; /* Vertically align heading and button */
-  justify-content: space-between; /* Ensure spacing between the two items */
-}
-
-.header h3 {
-  margin: 0; /* Remove default margin from h3 */
-}
-
-.header button {
-  margin-left: 10px; /* Optional: add some space between the heading and the button */
-  padding: 5px 10px; /* Style the button (optional) */
-  font-size: 14px; /* Adjust the font size to match your design */
-}
