@@ -5,6 +5,7 @@ import CalendarComponent from './Calender';
 import Rewards from './Rewards';
 
 const Main = () => {
+  //props = props.rewardData, props.questData
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]); // Default to today's date
 
   const handleDateChange = (date) => {
@@ -17,7 +18,7 @@ const Main = () => {
         {/* QuestManager column */}
         <div className="col-md-3 d-flex">
           <div className="p-3 border bg-light w-100">
-            <QuestManager selectedDate={selectedDate} />
+            <QuestManager selectedDate={selectedDate} questData={props.questData}/>
           </div>
         </div>
         {/* CalendarComponent column */}
@@ -29,7 +30,7 @@ const Main = () => {
         {/* Rewards column */}
         <div className="col-md-3 d-flex">
           <div className="p-3 border bg-light w-100">
-            <Rewards />
+            <Rewards rewardData={props.rewardData}/>
           </div>
         </div>
       </div>

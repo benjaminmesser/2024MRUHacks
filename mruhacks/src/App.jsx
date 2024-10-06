@@ -58,7 +58,7 @@ function App() {
     <>
       <div >
         <Navbar userData = {sampleUserData}/>
-        <Main rewardData = {1} questData = {1}/>
+        <Main rewardData = {sampleRewardData} questData = {sampleQuestData}/>
       </div>
     </>
   )
