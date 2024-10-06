@@ -90,7 +90,7 @@ const QuestManager = ({ selectedDate }) => {
 
  return (
    <div>
-    <div className="header">
+    <div className="qheader">
       <h3>Quests</h3>
       <button onClick={openModal}>Add Quest</button>
      </div>
@@ -127,9 +127,9 @@ const QuestManager = ({ selectedDate }) => {
   {filteredQuests.map((quest, index) => (
     <li key={index} className="quest-item">
       <div className="quest-name">
-        <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
-          {quest.name}
-        </span>
+          <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
+            {quest.name}
+          </span>
       </div>
       <div className="quest-difficulty">
         {quest.difficulty}

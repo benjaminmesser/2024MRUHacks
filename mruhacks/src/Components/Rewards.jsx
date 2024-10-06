@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Rewards.css';
+import RewardItem from './RewardItem';
 
 const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
@@ -82,28 +83,36 @@ const Rewards = () => {
         </div>
       )}
 
-<ul>
-  {rewards.map((t, index) => (
-    <li key={index}>
-      <div className="reward-box">
-        <div className="text-section">
-          <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
-            {t.description && <span>{t.description}</span>}
-          </span>
-        </div>
-        <div className="action-section">
-          <input
-            type="checkbox"
-            checked={t.completed}
-            onChange={() => handleCheckboxChange(index)}
-          />
-          <button onClick={() => openModal(index)}>Edit</button>
-          <button onClick={() => handleRemoveRewards(index)}>Remove</button>
-        </div>
+      <ul>
+        {rewards.map((t, index) => (
+          <li key={index}>
+            <div className="reward-box">
+              <div className="text-section">
+                <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
+                  {t.description && <span>{t.description}</span>}
+                </span>
+              </div>
+              <div className="action-section">
+                <input
+                  type="checkbox"
+                  checked={t.completed}
+                  onChange={() => handleCheckboxChange(index)}
+                />
+                <button onClick={() => openModal(index)}>Edit</button>
+                <button onClick={() => handleRemoveRewards(index)}>Remove</button>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <RewardItem title="Cheat Meal" money="10" />
+        <RewardItem title="1hr Video Game" money="10" />
       </div>
-    </li>
-  ))}
-</ul>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <RewardItem title="Movie Night" money="10" />
+        <RewardItem title="Binge Show" money="10" />
+      </div>
     </div>
   );
 };
