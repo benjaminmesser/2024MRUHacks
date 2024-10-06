@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Rewards.css';
+import RewardItem from './RewardItem'; // Import the RewardItem component
 
 const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editIndex, setEditIndex] = useState(null); // New state for tracking edit index
+  const [editIndex, setEditIndex] = useState(null);
 
   const openModal = (index = null) => {
     setIsModalOpen(true);
@@ -23,87 +24,42 @@ const Rewards = () => {
   };
 
   const handleAddRewards = () => {
-    if (rewardsDescription.trim()) {
-      if (editIndex !== null) {
-        // If editing, update the reward at the specific index
-        const updatedRewards = rewards.map((t, i) =>
-          i === editIndex ? { ...t, description: rewardsDescription } : t
-        );
-        setRewards(updatedRewards);
-      } else {
-        // If not editing, add a new reward
-        setRewards([...rewards, { 
-          description: rewardsDescription, 
-          completed: false, 
-          completionTime: null 
-        }]);
-      }
-      closeModal();
+    if (editIndex !== null) {
+      const updatedRewards = [...rewards];
+      updatedRewards[editIndex] = { description: rewardsDescription };
+      setRewards(updatedRewards);
+      setEditIndex(null);
     } else {
-      alert("Reward description is required.");
+      setRewards([...rewards, { description: rewardsDescription }]);
     }
-  };
-
-  const handleCheckboxChange = (index) => {
-    const updatedRewards = rewards.map((t, i) =>
-      i === index
-        ? { ...t, completed: !t.completed, completionTime: !t.completed ? new Date().toLocaleString() : null }
-        : t
-    );
-    setRewards(updatedRewards);
-  };
-
-  const handleRemoveRewards = (index) => {
-    const updatedRewards = rewards.filter((_, i) => i !== index);
-    setRewards(updatedRewards);
+    setRewardsDescription('');
+    setIsModalOpen(false);
   };
 
   return (
     <div>
-      <div className="header">
-        <h3>Rewards</h3>
-        <button onClick={() => openModal()}>Add Reward</button>
-      </div>
+      <button onClick={() => openModal()}>Add Reward</button>
       {isModalOpen && (
         <div className="modal">
-          <div className="modal-content">
-            <label>Reward:</label>
-            <textarea
-              value={rewardsDescription}
-              onChange={(e) => setRewardsDescription(e.target.value)}
-              placeholder="Enter the reward"
-              maxLength={50}
-            ></textarea>
-            <button onClick={handleAddRewards} > 
-              {editIndex !== null ? "Save Changes" : "Add Reward"} {/* Change button text */}
-            </button>
-            <button onClick={closeModal}>Cancel</button>
-          </div>
+          <h2>{editIndex !== null ? 'Edit Reward' : 'Add Reward'}</h2>
+          <input
+            type="text"
+            value={rewardsDescription}
+            onChange={(e) => setRewardsDescription(e.target.value)}
+          />
+          <button onClick={handleAddRewards}>{editIndex !== null ? 'Save' : 'Add'}</button>
+          <button onClick={closeModal}>Cancel</button>
         </div>
       )}
-
-<ul>
-  {rewards.map((t, index) => (
-    <li key={index}>
-      <div className="reward-box">
-        <div className="text-section">
-          <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
-            {t.description && <span>{t.description}</span>}
-          </span>
-        </div>
-        <div className="action-section">
-          <input
-            type="checkbox"
-            checked={t.completed}
-            onChange={() => handleCheckboxChange(index)}
+      <div className="rewards-list">
+        {rewards.map((reward, index) => (
+          <RewardItem
+            key={index}
+            description={reward.description}
+            onEdit={() => openModal(index)}
           />
-          <button onClick={() => openModal(index)}>Edit</button>
-          <button onClick={() => handleRemoveRewards(index)}>Remove</button>
-        </div>
+        ))}
       </div>
-    </li>
-  ))}
-</ul>
     </div>
   );
 };
