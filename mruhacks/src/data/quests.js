@@ -1,4 +1,4 @@
-[
+var sampleQuestData = [
     {
         "questId": 1,
         "userId": 0,
@@ -16,3 +16,5 @@
         "date": "2024-10-10"
     }
 ]
+
+export default sampleQuestData;

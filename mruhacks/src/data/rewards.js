@@ -1,4 +1,4 @@
-[
+const sampleRewardData = [
     {
         "rewardId": 0,
         "userId": 0,
@@ -13,4 +13,6 @@
         "rewardDescription": "Give myself a lil treat :)",
         "cost": 60
     }
-]
+];
+
+export default sampleRewardData
