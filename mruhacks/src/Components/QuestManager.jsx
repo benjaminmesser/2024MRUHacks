@@ -109,38 +109,38 @@ const QuestManager = ({ selectedDate }) => {
         </div>
       )}
 
-    <ul>
-      {filteredQuests.map((quest, index) => (
-        <li
-          key={index}
-          className={`quest-item ${
-            quest.difficulty === 'Easy'
-              ? 'easy'
-              : quest.difficulty === 'Medium'
-              ? 'medium'
-              : 'hard'
-          } ${quest.completed ? 'completed' : ''}`} // Adds 'completed' class if the quest is completed
-        >
-          <div className="quest-name" style={{ display: 'flex', alignItems: 'center' }}>
-            <input
-              type="checkbox"
-              checked={quest.completed}
-              onChange={() => handleCheckboxChange(index)}
-              style={{ marginRight: '8px' }}
-            />
-            <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
-              {quest.name}
-            </span>
-          </div>
-          <div className="quest-difficulty">
-            {quest.difficulty}
-          </div>
-          <div className="action-buttons">
-            <button onClick={() => handleRemoveQuest(index)}>Remove</button>
-          </div>
-        </li>
-      ))}
-    </ul>
+  <ul>
+    {filteredQuests.map((quest, index) => (
+      <li
+        key={index}
+        className={`quest-item ${
+          quest.difficulty === 'Easy'
+            ? 'easy'
+            : quest.difficulty === 'Medium'
+            ? 'medium'
+            : 'hard'
+        } ${quest.completed ? 'completed' : ''}`} // Adds 'completed' class if the quest is completed
+      >
+        <div className="quest-name" style={{ display: 'flex', alignItems: 'center' }}>
+          <input
+            type="checkbox"
+            checked={quest.completed}
+            onChange={() => handleCheckboxChange(index)}
+            style={{ marginRight: '8px' }}
+          />
+          <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
+            {quest.name}
+          </span>
+        </div>
+        <div className="quest-difficulty">
+          {quest.difficulty}
+        </div>
+        <div className="action-buttons">
+          <button onClick={() => handleRemoveQuest(index)}>Remove</button>
+        </div>
+      </li>
+    ))}
+  </ul>
     </div>
   );
 };

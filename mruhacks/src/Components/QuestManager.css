@@ -12,6 +12,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   animation: topslide 1000ms;
+  background-color: #fd7e14;
 }
 
 @keyframes topslide {
@@ -39,21 +40,31 @@
   border-radius: 4px;
 }
 
+.qmodal input {
+  background-color: white;
+  color: black;
+}
+
 .qmodal textarea {
   resize: vertical;
   height: 80px;
+  background-color: white;
+  color: black;
 }
 
 .qmodal select {
   margin-bottom: 40px;
+  background-color: white;
+  color: black;
+  ;
 }
 
 .qmodal button {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
