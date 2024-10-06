@@ -92,30 +92,32 @@ const QuestManager = ({ selectedDate }) => {
       <button onClick={openModal}>Add Quest</button>
      </div>
      {isModalOpen && (
-       <div className="qmodal">
-         <input
-           type="text"
-           value={questName}
-           onChange={(e) => setQuestName(e.target.value)}
-           placeholder="Quest Name"
-         />
-         <textarea
-           value={questDescription}
-           onChange={(e) => setQuestDescription(e.target.value)}
-           placeholder="Quest Description"
-         />
-         <select
-           value={questDifficulty}
-           onChange={(e) => setQuestDifficulty(e.target.value)}
-         >
-           <option value="easy">Easy</option>
-           <option value="medium">Medium</option>
-           <option value="hard">Hard</option>
-         </select>
-         <button onClick={handleAddQuest}>Add Quest</button>
-         <button onClick={closeModal}>Cancel</button>
-       </div>
-     )}
+  <div className="qmodal">
+    <input
+      type="text"
+      value={questName}
+      onChange={(e) => setQuestName(e.target.value)}
+      placeholder="Quest Name"
+    />
+    <textarea
+      value={questDescription}
+      onChange={(e) => setQuestDescription(e.target.value)}
+      placeholder="Quest Description"
+    />
+    <select
+      value={questDifficulty}
+      onChange={(e) => setQuestDifficulty(e.target.value)}
+    >
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+    <div className="button-container">
+      <button onClick={handleAddQuest}>Add Quest</button>
+      <button onClick={closeModal}>Cancel</button>
+    </div>
+  </div>
+)}
 
 
      <ul>
