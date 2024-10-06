@@ -57,12 +57,22 @@ const Rewards = () => {
   };
 
   const handleCheckboxChange = (index) => {
-    const updatedRewards = rewards.map((t, i) =>
-      i === index
-        ? { ...t, completed: !t.completed, completionTime: !t.completed ? new Date().toLocaleString() : null }
-        : t
-    );
-    setRewards(updatedRewards);
+    const updatedRewards = rewards.map((t, i) => {
+      if (i === index) {
+        if (!t.completed) {
+          // If the reward is being marked as completed (checkbox checked)
+          alert(`You bought the reward: ${t.description}`);
+          return { ...t, completed: true, completionTime: new Date().toLocaleString() };
+        } else {
+          // If the reward is being unmarked as completed (checkbox unchecked)
+          return { ...t, completed: false, completionTime: null };
+        }
+      }
+      return t;
+    });
+
+    // Reset checkbox by marking all as not completed (uncheck it)
+    setRewards(updatedRewards.map((t, i) => (i === index ? { ...t, completed: false } : t)));
   };
 
   const handleRemoveRewards = (index) => {
@@ -82,7 +92,7 @@ const Rewards = () => {
               value={rewardsDescription}
               onChange={(e) => setRewardsDescription(e.target.value)}
               placeholder="Enter the reward"
-              maxLength={50}
+              maxLength={200}
             ></textarea>
             <select
               value={rewardDifficulty} // Bind select value to state
