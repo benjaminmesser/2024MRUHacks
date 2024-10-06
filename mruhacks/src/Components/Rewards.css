@@ -1,22 +1,76 @@
 .reward-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align to the top */
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
   background-color: #f9f9f9;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 100%; /* Ensures the box doesn't exceed container width */
-  word-wrap: break-word; /* Allows long words to break and fit inside the box */
-  overflow-wrap: break-word; /* Handles overflow for long words or URLs */
-}
-
-.reward-box span {
-  max-width: 60%;
+  max-width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-.reward-box button, .reward-box input {
-  margin-left: 10px;
+/* Limit the width of the text section */
+.reward-box .text-section {
+  flex: 1; /* Take up available space */
+  margin-right: 20px; /* Space between text and action section */
+  max-width: 70%; /* Set a maximum width (adjust as needed) */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Vertically stack and align the checkbox and buttons */
+.reward-box .action-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px; /* Space between the checkbox and buttons */
+}
+
+/* Make the checkbox bigger */
+.reward-box input[type="checkbox"] {
+  transform: scale(1.5); /* Make the checkbox bigger */
+}
+
+/* Make the buttons smaller */
+.reward-box button {
+  padding: 5px 10px; /* Smaller padding for smaller buttons */
+  font-size: 12px; /* Reduce font size */
+  margin: 0;
+}
+
+/* Optional: Ensure that reward-box does not overflow */
+.reward-box {
+  overflow: hidden;
+  box-sizing: border-box; /* Include padding and borders in width */
+}
+
+ul {
+  list-style: none; /* Remove bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center; /* Vertically align heading and button */
+  justify-content: space-between; /* Ensure spacing between the two items */
+}
+
+.header h3 {
+  margin: 0; /* Remove default margin from h3 */
+}
+
+.header button {
+  margin-left: 10px; /* Optional: add some space between the heading and the button */
+  padding: 5px 10px; /* Style the button (optional) */
+  font-size: 14px; /* Adjust the font size to match your design */
 }
