@@ -5,7 +5,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px; /* Smaller width */
-  height: 400px;
+  height: auto;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
