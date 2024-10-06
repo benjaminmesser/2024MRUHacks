@@ -92,7 +92,7 @@ const QuestManager = ({ selectedDate }) => {
       <button onClick={openModal}>Add Quest</button>
      </div>
      {isModalOpen && (
-       <div className="modal">
+       <div className="qmodal">
          <input
            type="text"
            value={questName}
