@@ -72,6 +72,7 @@ li {
   display: flex;
   align-items: center; /* Vertically align heading and button */
   justify-content: space-between; /* Ensure spacing between the two items */
+  margin-bottom: 30px;
 }
 
 .header h3 {
@@ -80,7 +81,6 @@ li {
 
 .header button {
   margin-left: 10px; /* Optional: add some space between the heading and the button */
-  padding: 5px 10px; /* Style the button (optional) */
   font-size: 14px; /* Adjust the font size to match your design */
 }
 

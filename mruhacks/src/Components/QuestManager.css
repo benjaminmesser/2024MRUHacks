@@ -138,5 +138,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px; /* Adds space between the header and the boxes */
+  margin-bottom: 30px; /* Adds space between the header and the boxes */
+}
+
+.qheader button {
+  margin-left: 10px; /* Optional: add some space between the heading and the button */
+  font-size: 14px; /* Adjust the font size to match your design */
 }

@@ -8,7 +8,8 @@
   padding: 10px; /* Add padding around the card content */
   background-color: #f9f9f9; /* Optional: background color */
   margin: 0.5rem; /* Space between cards */
-  height: 230px; /* Set a fixed height for the card (adjust as needed) */
+  height: auto; /* Set a fixed height for the card (adjust as needed) */
+  width: auto;
   position: relative; /* Positioning context for the button */
 }
 
