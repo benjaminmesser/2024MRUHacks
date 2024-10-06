@@ -5,10 +5,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px; /* Smaller width */
-  height: 400px;
+  height: auto;
   background-color: white;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
@@ -88,4 +88,15 @@ li {
   margin-left: 10px; /* Optional: add some space between the heading and the button */
   padding: 5px 10px; /* Style the button (optional) */
   font-size: 14px; /* Adjust the font size to match your design */
+}
+
+
+.modal textarea,
+.modal button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }

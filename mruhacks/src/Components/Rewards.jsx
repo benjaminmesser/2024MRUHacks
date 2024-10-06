@@ -68,7 +68,6 @@ const Rewards = () => {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <label>Reward:</label>
             <textarea
               value={rewardsDescription}
               onChange={(e) => setRewardsDescription(e.target.value)}
