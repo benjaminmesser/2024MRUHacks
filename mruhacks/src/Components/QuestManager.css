@@ -88,7 +88,7 @@
   flex-basis: 30%; /* Adjust this value as needed */
   flex-grow: 0; /* Prevents growing beyond the set width */
   flex-shrink: 0; /* Prevents shrinking below the set width */
-  max-width: 10ch; /* Maximum width to allow wrapping after 10 characters */
+  max-width: 15ch; /* Maximum width to allow wrapping after 10 characters */
   overflow-wrap: break-word; /* Allows text wrapping */
   word-wrap: break-word; /* For older browsers */
 }

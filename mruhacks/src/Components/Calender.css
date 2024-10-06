@@ -22,18 +22,42 @@
 
 /* Highlight the selected date */
 .react-calendar__tile--active {
-  background: #006edc; /* Blue background for the selected date */
+  background: #0072dc; /* Blue background for the selected date */
   color: white; /* White text color for better contrast */
 }
 
 /* Center the top part (month and arrows) */
-.react-calendar__navigation {
-  display: flex;
-  justify-content: center; /* Center the content */
-  align-items: center; /* Vertically center the content */
+.react-calendar__navigation__label {
+  color: #000000; /* Change to any desired color */
+  font-weight: bold; /* Optional: to make it stand out */
+  width: 20px;
 }
 
+
 .react-calendar__navigation button {
-  min-width: 44px;
+  min-width: 10px;
   background: none;
+}
+
+/* Customizing the arrow buttons */
+.react-calendar__navigation__arrow {
+  color: #000000; /* Change the color of the arrow */
+  margin: 0 10px; /* Optional: Adjust spacing between arrow and month */
+}
+
+
+.react-calendar__navigation__arrow:hover {
+  background-color: #ffe082; /* Optional: Change background on hover */
+  color: #000; /* Optional: Change text color on hover */
+}
+
+.calendar-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

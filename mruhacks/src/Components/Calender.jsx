@@ -13,7 +13,9 @@ const CalendarComponent = ({ onDateChange }) => {
   return (
     <div>
       <h3>Calender</h3>
-      <Calendar onChange={handleDateChange} value={selectedDate} />
+      <div className="calendar-container">
+        <Calendar onChange={handleDateChange} value={selectedDate} />
+      </div>
     </div>
   );
 };
