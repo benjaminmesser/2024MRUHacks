@@ -18,12 +18,13 @@
   height: 90px; /* Set a fixed height for the image */
   border-radius: 50%; /* Make the image circular */
   object-fit: cover; /* Ensure image covers the area without distortion */
+  margin-bottom: 15px; /* Space between the image and the title */
 }
 
 .card-title {
   margin: 0; /* Remove default margin */
   height: 30px;
-  margin-bottom: 20px; /* Space between the image and the title */
+  margin-bottom: 15px; /* Space between the image and the title */
   font-size: 16px; /* Adjust font size for the title */
   text-align: center; /* Center align the title */
 }
