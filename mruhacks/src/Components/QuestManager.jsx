@@ -5,7 +5,7 @@ import './QuestManager.css';
 const QuestManager = ({ selectedDate }) => {
  const [questName, setQuestName] = useState('');
  const [questDescription, setQuestDescription] = useState('');
- const [questDifficulty, setQuestDifficulty] = useState('easy');
+ const [questDifficulty, setQuestDifficulty] = useState('Easy');
  const [questsByDate, setQuestsByDate] = useState({});
  const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const QuestManager = ({ selectedDate }) => {
    setIsModalOpen(false);
    setQuestName(''); // Clear form on close
    setQuestDescription('');
-   setQuestDifficulty('easy');
+   setQuestDifficulty('Easy');
  };
 
 
@@ -108,9 +108,9 @@ const QuestManager = ({ selectedDate }) => {
       value={questDifficulty}
       onChange={(e) => setQuestDifficulty(e.target.value)}
     >
-      <option value="easy">Easy</option>
-      <option value="medium">Medium</option>
-      <option value="hard">Hard</option>
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
     </select>
     <div className="button-container">
       <button onClick={handleAddQuest}>Add Quest</button>
@@ -120,23 +120,28 @@ const QuestManager = ({ selectedDate }) => {
 )}
 
 
-     <ul>
-       {filteredQuests.map((quest, index) => (
-         <li key={index}>
-           <input
-             type="checkbox"
-             checked={quest.completed}
-             onChange={() => handleCheckboxChange(index)}
-           />
-           <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
-             {quest.name} (Difficulty: {quest.difficulty})
-             {quest.description && <span> - {quest.description}</span>}
-           </span>
-           {quest.completed && <span> (Completed at: {quest.completionTime})</span>}
-           <button onClick={() => handleRemoveQuest(index)}>Remove</button>
-         </li>
-       ))}
-     </ul>
+<ul>
+  {filteredQuests.map((quest, index) => (
+    <li key={index} className="quest-item">
+      <div className="quest-name">
+        <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
+          {quest.name}
+        </span>
+      </div>
+      <div className="quest-difficulty">
+        {quest.difficulty}
+      </div>
+      <div className="action-buttons">
+        <input
+          type="checkbox"
+          checked={quest.completed}
+          onChange={() => handleCheckboxChange(index)}
+        />
+        <button onClick={() => handleRemoveQuest(index)}>Remove</button>
+      </div>
+    </li>
+  ))}
+</ul>
    </div>
  );
 };

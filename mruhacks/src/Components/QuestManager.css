@@ -76,3 +76,54 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
+
+/* Styling for each quest item */
+.quest-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+/* Left side of the quest item - quest name */
+.quest-item .quest-name {
+  flex: 2; /* Takes up more space */
+}
+
+/* Middle side - quest difficulty */
+.quest-item .quest-difficulty {
+  flex: 1;
+  text-align: center; /* Center the difficulty */
+}
+
+/* Right side - checkbox and remove button container */
+.quest-item .action-buttons {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Checkbox and Remove button with same size */
+.quest-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Space between checkbox and button */
+}
+
+.quest-item button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quest-item button:hover {
+  background-color: #c82333;
+}
