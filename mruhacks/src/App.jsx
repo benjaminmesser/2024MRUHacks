@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <div >
-        <Navbar userData = {user_data} userXp = {user_data.xp}/>
+        <Navbar userData = {user_data}/>
         <Main rewardData = {reward_data} questData = {quest_data}/>
       </div>
     </>
