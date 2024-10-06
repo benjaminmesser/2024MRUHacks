@@ -1,45 +1,56 @@
+/* Container for the cards */
+.rewards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Two cards per row, responsive */
+  padding: 0px; /* Add padding around the container */
+}
+
+/* Card styling */
 .card {
   display: flex;
-  flex-direction: column; /* Arrange elements vertically */
-  justify-content: space-between; /* Space between content and push button to the bottom */
-  align-items: center; /* Center content horizontally */
-  border: 1px solid #ccc; /* Optional: add a border for visual separation */
-  border-radius: 8px; /* Optional: rounded corners */
-  padding: 10px; /* Add padding around the card content */
-  background-color: #f9f9f9; /* Optional: background color */
-  margin: 0.5rem; /* Space between cards */
-  height: auto; /* Set a fixed height for the card (adjust as needed) */
-  width: auto;
-  position: relative; /* Positioning context for the button */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin: 0.5rem;
+  height: auto;
+  width: auto; /* Ensure cards take full available width within their grid column */
+  position: relative;
 }
 
+/* Card image */
 .card img {
-  width: 90px; /* Set a fixed width for the image */
-  height: 90px; /* Set a fixed height for the image */
-  border-radius: 50%; /* Make the image circular */
-  object-fit: cover; /* Ensure image covers the area without distortion */
-  margin-bottom: 15px; /* Space between the image and the title */
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
+/* Card title */
 .card-title {
-  margin: 0; /* Remove default margin */
+  margin: 0;
   height: 30px;
-  margin-bottom: 15px; /* Space between the image and the title */
-  font-size: 16px; /* Adjust font size for the title */
-  text-align: center; /* Center align the title */
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-align: center;
 }
 
+/* Button container */
 .button-container {
-  position: absolute; /* Position the button container absolutely */
-  bottom: 0px; /* Set the height from the bottom (adjust as needed) */
-  left: 0; /* Align to the left */
-  right: 0; /* Align to the right */
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center the button */
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .button-container a {
-  width: 90%; /* Full width of the container */
-  padding: 5px; /* Ensure the button has enough padding */
-  text-align: center; /* Center align text in the button */
+  width: 90%;
+  padding: 5px;
+  text-align: center;
 }
