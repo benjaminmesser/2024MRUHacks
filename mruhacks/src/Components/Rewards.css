@@ -11,6 +11,25 @@
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+  animation: topslide 1000ms;
+}
+
+.modal select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@keyframes topslide {
+  from {
+    transform: translate(-50%, -150%); /* Start the modal above the viewport */
+  }
+  to {
+    transform: translate(-50%, -50%); /* Slide to its centered position */
+  }
 }
 
 .reward-box {

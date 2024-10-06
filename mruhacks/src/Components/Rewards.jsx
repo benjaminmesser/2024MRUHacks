@@ -5,14 +5,16 @@ import RewardItem from './RewardItem';
 const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
+  const [rewardDifficulty, setRewardDifficulty] = useState('Easy'); // State for difficulty
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editIndex, setEditIndex] = useState(null); // New state for tracking edit index
 
   const openModal = (index = null) => {
     setIsModalOpen(true);
     if (index !== null) {
-      // If editing, populate the modal with existing reward's description
+      // If editing, populate the modal with existing reward's description and difficulty
       setRewardsDescription(rewards[index].description);
+      setRewardDifficulty(rewards[index].difficulty); // Populate the difficulty
       setEditIndex(index); // Set the index being edited
     }
   };
@@ -20,6 +22,7 @@ const Rewards = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setRewardsDescription('');
+    setRewardDifficulty('Easy'); // Reset to default
     setEditIndex(null); // Clear edit index on close
   };
 
@@ -28,20 +31,24 @@ const Rewards = () => {
       if (editIndex !== null) {
         // If editing, update the reward at the specific index
         const updatedRewards = rewards.map((t, i) =>
-          i === editIndex ? { ...t, description: rewardsDescription } : t
+          i === editIndex ? { ...t, description: rewardsDescription, difficulty: rewardDifficulty } : t
         );
         setRewards(updatedRewards);
       } else {
         // If not editing, add a new reward
-        setRewards([...rewards, { 
-          description: rewardsDescription, 
-          completed: false, 
-          completionTime: null 
-        }]);
+        setRewards([
+          ...rewards,
+          {
+            description: rewardsDescription,
+            difficulty: rewardDifficulty, // Include the selected difficulty
+            completed: false,
+            completionTime: null,
+          },
+        ]);
       }
       closeModal();
     } else {
-      alert("Reward description is required.");
+      alert('Reward description is required.');
     }
   };
 
@@ -74,8 +81,16 @@ const Rewards = () => {
               placeholder="Enter the reward"
               maxLength={50}
             ></textarea>
-            <button onClick={handleAddRewards} > 
-              {editIndex !== null ? "Save Changes" : "Add Reward"} {/* Change button text */}
+            <select
+              value={rewardDifficulty} // Bind select value to state
+              onChange={(e) => setRewardDifficulty(e.target.value)} // Update difficulty
+            >
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+            <button onClick={handleAddRewards}>
+              {editIndex !== null ? 'Save Changes' : 'Add Reward'} {/* Change button text */}
             </button>
             <button onClick={closeModal}>Cancel</button>
           </div>
@@ -90,6 +105,8 @@ const Rewards = () => {
                 <span style={{ textDecoration: t.completed ? 'line-through' : 'none' }}>
                   {t.description && <span>{t.description}</span>}
                 </span>
+                <br />
+                <small>Difficulty: {t.difficulty}</small> {/* Display the difficulty */}
               </div>
               <div className="action-section">
                 <input
@@ -104,12 +121,13 @@ const Rewards = () => {
           </li>
         ))}
       </ul>
+
       <div className="rewards-container">
         <RewardItem title="Cheat Meal" money="10pts" />
         <RewardItem title="1hr Video Game" money="10pts" />
         <RewardItem title="Movie Night" money="10pts" />
         <RewardItem title="Binge Show" money="10pts" />
-    </div>
+      </div>
     </div>
   );
 };
