@@ -13,7 +13,7 @@ const Main = (props) => {
   };
 
   return (
-    <div className="container-fluid vh-100 d-flex flex-column" style={{ paddingTop: '50px' }}>
+    <div className="container-fluid vh-100 d-flex flex-column" style={{ backgroundColor: 'grey', paddingTop: '50px' }}>
       <div className="row flex-grow-1">
         {/* QuestManager column */}
         <div className="col-md-3 d-flex">
