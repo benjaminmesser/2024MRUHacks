@@ -127,6 +127,7 @@ const QuestManager = ({ selectedDate }) => {
           <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
             {quest.name}
           </span>
+
       </div>
       <div className="quest-difficulty">
         {quest.difficulty}

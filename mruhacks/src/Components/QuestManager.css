@@ -92,10 +92,19 @@
 
 /* Left side of the quest item - quest name */
 .quest-item .quest-name {
-  flex-basis: 40%; /* Occupies 40% of the width */
-  flex-grow: 0; /* Prevents growing beyond 40% */
-  flex-shrink: 0; /* Prevents shrinking below 40% */
+  flex-basis: 30%; /* Adjust this value as needed */
+  flex-grow: 0; /* Prevents growing beyond the set width */
+  flex-shrink: 0; /* Prevents shrinking below the set width */
+  max-width: 10ch; /* Maximum width to allow wrapping after 10 characters */
   overflow-wrap: break-word; /* Allows text wrapping */
+  word-wrap: break-word; /* For older browsers */
+}
+
+.quest-item .quest-name span {
+  display: block; /* Make it block level so it can wrap */
+  max-width: 100%; /* Ensures it does not exceed the parent width */
+  overflow-wrap: break-word; /* Allow wrapping */
+  word-wrap: break-word; /* For older browsers */
 }
 
 /* Middle side - quest difficulty */
@@ -137,12 +146,4 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px; /* Adds space between the header and the boxes */
-}
-
-.quest-item .quest-name {
-  flex: 1; /* Take up available space */
-  margin-right: 10px; /* Space between text and action section */
-  max-width: 70%; /* Set a maximum width (adjust as needed) */
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
