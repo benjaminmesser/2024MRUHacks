@@ -9,7 +9,7 @@ const RewardItem = ({ description, title, money }) => {
         <h5 className="card-title">{title}</h5>
         <img src={avatar} className="card-img-top" alt="Avatar" />
         <div className="button-container" style={{ display: 'flex', justifyContent: 'center' }}>
-          <a href="#" className="btn btn-primary" style={{ width: '100%' }}>Buy {money}</a>
+          <a href="#" className="btn btn-primary" style={{ width: '100%' }}>Buy {money}pt</a>
         </div>
       </div>
     </div>
