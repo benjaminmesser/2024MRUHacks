@@ -10,6 +10,8 @@ import RewardItem from './Components/RewardItem';
 
 //import sample data from text files
 import sampleUserData from './data/user.js'
+import sampleRewardData from './data/rewards.js'
+import sampleQuestData from './data/quests.js'
 
 
 
@@ -55,8 +57,8 @@ function App() {
   return (
     <>
       <div >
-        <Navbar userData = {1}/>
-        <Main rewardData = {1} questData = {1}/>
+        <Navbar userData = {sampleUserData}/>
+        <Main rewardData = {sampleRewardData} questData = {sampleQuestData}/>
       </div>
     </>
   )
