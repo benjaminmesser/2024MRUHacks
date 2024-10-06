@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
     "@supabase/supabase-js": "^2.45.4",
+    "firebase": "^10.14.0",
     "js-cookie": "^3.0.5",
     "react": "^18.3.1",
     "react-calendar": "^5.0.0",
