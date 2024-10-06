@@ -4,7 +4,7 @@ import QuestManager from './QuestManager';
 import CalendarComponent from './Calender';
 import Rewards from './Rewards';
 
-const Main = () => {
+const Main = (props) => {
   //props = props.rewardData, props.questData
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]); // Default to today's date
 
