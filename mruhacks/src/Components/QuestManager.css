@@ -89,14 +89,18 @@
   background-color: #f8f9fa;
 }
 
+
 /* Left side of the quest item - quest name */
 .quest-item .quest-name {
-  flex: 2; /* Takes up more space */
+  flex-basis: 40%; /* Occupies 40% of the width */
+  flex-grow: 0; /* Prevents growing beyond 40% */
+  flex-shrink: 0; /* Prevents shrinking below 40% */
+  overflow-wrap: break-word; /* Allows text wrapping */
 }
 
 /* Middle side - quest difficulty */
 .quest-item .quest-difficulty {
-  flex: 1;
+  flex-basis: 20%; /* Takes 20% of the width */
   text-align: center; /* Center the difficulty */
 }
 
@@ -104,10 +108,9 @@
 .quest-item .action-buttons {
   display: flex;
   align-items: center;
-  flex: 1;
-  justify-content: flex-end;
+  flex-basis: 40%; /* Takes the remaining 40% */
+  justify-content: flex-end; /* Aligns the checkbox and button to the right */
 }
-
 /* Checkbox and Remove button with same size */
 .quest-item input[type="checkbox"] {
   width: 20px;
@@ -115,9 +118,10 @@
   margin-right: 10px; /* Space between checkbox and button */
 }
 
+
 .quest-item button {
   padding: 5px 10px;
-  background-color: #dc3545;
+  background-color: #000000;
   color: white;
   border: none;
   border-radius: 4px;
@@ -126,4 +130,19 @@
 
 .quest-item button:hover {
   background-color: #c82333;
+}
+
+.qheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Adds space between the header and the boxes */
+}
+
+.quest-item .quest-name {
+  flex: 1; /* Take up available space */
+  margin-right: 10px; /* Space between text and action section */
+  max-width: 70%; /* Set a maximum width (adjust as needed) */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
