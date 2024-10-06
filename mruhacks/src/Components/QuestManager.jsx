@@ -77,52 +77,67 @@ const QuestManager = ({ selectedDate }) => {
 
   return (
     <div>
-      <h3>Quests</h3>
-      <button onClick={openModal}>Add Quest</button>
-      {isModalOpen && (
-        <div className="modal">
-          <input 
-            type="text" 
-            value={questName} 
-            onChange={(e) => setQuestName(e.target.value)} 
-            placeholder="Quest Name" 
-          />
-          <textarea 
-            value={questDescription} 
-            onChange={(e) => setQuestDescription(e.target.value)} 
-            placeholder="Quest Description" 
-          />
-          <select 
-            value={questDifficulty} 
-            onChange={(e) => setQuestDifficulty(e.target.value)}
-          >
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
+  <div className="header">
+    <h3>Quests</h3>
+    <button onClick={openModal}>Add Quest</button>
+  </div>
+  
+  {/* Overlay and Modal */}
+  {isModalOpen && (
+    <>
+      {/* Overlay */}
+      <div className="overlay" onClick={closeModal}></div>
+      
+      {/* Modal */}
+      <div className="modal">
+        <input 
+          type="text" 
+          value={questName} 
+          onChange={(e) => setQuestName(e.target.value)} 
+          placeholder="Quest Name" 
+        />
+        <textarea 
+          value={questDescription} 
+          onChange={(e) => setQuestDescription(e.target.value)} 
+          placeholder="Quest Description" 
+          maxLength={200}
+        />
+        <select 
+          value={questDifficulty} 
+          onChange={(e) => setQuestDifficulty(e.target.value)}
+        >
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        
+        {/* Buttons */}
+        <div className="button-container">
           <button onClick={handleAddQuest}>Add Quest</button>
           <button onClick={closeModal}>Cancel</button>
         </div>
-      )}
+      </div>
+    </>
+  )}
 
-      <ul>
-        {filteredQuests.map((quest, index) => (
-          <li key={index}>
-            <input
-              type="checkbox"
-              checked={quest.completed}
-              onChange={() => handleCheckboxChange(index)}
-            />
-            <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
-              {quest.name} (Difficulty: {quest.difficulty})
-              {quest.description && <span> - {quest.description}</span>}
-            </span>
-            {quest.completed && <span> (Completed at: {quest.completionTime})</span>}
-            <button onClick={() => handleRemoveQuest(index)}>Remove</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+  <ul>
+    {filteredQuests.map((quest, index) => (
+      <li key={index}>
+        <input
+          type="checkbox"
+          checked={quest.completed}
+          onChange={() => handleCheckboxChange(index)}
+        />
+        <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
+          {quest.name} (Difficulty: {quest.difficulty})
+          {quest.description && <span> - {quest.description}</span>}
+        </span>
+        {quest.completed && <span> (Completed at: {quest.completionTime})</span>}
+        <button onClick={() => handleRemoveQuest(index)}>Remove</button>
+      </li>
+    ))}
+  </ul>
+</div>
   );
 };
 

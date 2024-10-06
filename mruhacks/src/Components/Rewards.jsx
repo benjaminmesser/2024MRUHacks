@@ -62,7 +62,7 @@ const Rewards = () => {
     <div>
       <div className="header">
         <h3>Rewards</h3>
-        <button onClick={() => openModal()}>Add Reward</button>
+        <button onClick={() => openModal()} >Add Reward</button>
       </div>
       {isModalOpen && (
         <div className="modal">
