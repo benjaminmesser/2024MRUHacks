@@ -4,7 +4,7 @@ const sampleUserData = {
         "firstName": "John",
         "lastName": "Smith",
         "xp": 950,
-        "points": 0
+        "points": 30
     }
 
 export default sampleUserData;

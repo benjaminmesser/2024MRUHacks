@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Rewards.css';
 import RewardItem from './RewardItem';
-import burger from '../assets/burger.jpg';
-import controller from '../assets/controller.jpg';
-import movie from '../assets/movie.jpg';
+import burger from '../assets/burger_processed.jpg';
+import controller from '../assets/controller_processed.jpg';
+import movie from '../assets/movie_processed.jpg';
 import show from '../assets/show.jpg';
 
 const Rewards = () => {

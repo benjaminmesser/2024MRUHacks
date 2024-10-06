@@ -14,7 +14,7 @@ const CalendarComponent = ({ onDateChange }) => {
     <div>
       <h3>Calendar</h3>
       <div className="calendar-container">
-        <Calendar onChange={handleDateChange} value={selectedDate} />
+        <Calendar minDetail="month" onChange={handleDateChange} value={selectedDate} />
       </div>
     </div>
   );
