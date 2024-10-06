@@ -1,5 +1,4 @@
 import React from 'react';
-import {avatar , controller, movie, show } from '../assets/'; // Import the image
 import './RewardItem.css';
 
 const RewardItem = ({ description, title, money, image }) => {

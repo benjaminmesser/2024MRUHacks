@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './Rewards.css';
 import RewardItem from './RewardItem';
-import {burger, controller, movie, show } from '../assets/';
+import burger from '../assets/burger.jpg';
+import controller from '../assets/controller.jpg';
+import movie from '../assets/movie.jpg';
+import show from '../assets/show.jpg';
+
 const Rewards = () => {
   const [rewardsDescription, setRewardsDescription] = useState('');
   const [rewards, setRewards] = useState([]);
