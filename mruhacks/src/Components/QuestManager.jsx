@@ -7,6 +7,8 @@ const QuestManager = ({ selectedDate }) => {
   const [questDifficulty, setQuestDifficulty] = useState('Easy');
   const [questsByDate, setQuestsByDate] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDescModalOpen, setIsDescModalOpen] = useState(false);
+  const [selectedQuestDesc, setSelectedQuestDesc] = useState('');
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -17,6 +19,16 @@ const QuestManager = ({ selectedDate }) => {
     setQuestName('');
     setQuestDescription('');
     setQuestDifficulty('Easy');
+  };
+
+  const openDescModal = (description) => {
+    setSelectedQuestDesc(description);
+    setIsDescModalOpen(true);
+  };
+
+  const closeDescModal = () => {
+    setIsDescModalOpen(false);
+    setSelectedQuestDesc('');
   };
 
   const handleAddQuest = () => {
@@ -109,38 +121,46 @@ const QuestManager = ({ selectedDate }) => {
         </div>
       )}
 
-  <ul>
-    {filteredQuests.map((quest, index) => (
-      <li
-        key={index}
-        className={`quest-item ${
-          quest.difficulty === 'Easy'
-            ? 'easy'
-            : quest.difficulty === 'Medium'
-            ? 'medium'
-            : 'hard'
-        } ${quest.completed ? 'completed' : ''}`} // Adds 'completed' class if the quest is completed
-      >
-        <div className="quest-name" style={{ display: 'flex', alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            checked={quest.completed}
-            onChange={() => handleCheckboxChange(index)}
-            style={{ marginRight: '8px' }}
-          />
-          <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
-            {quest.name}
-          </span>
+      {isDescModalOpen && (
+        <div className="desc-modal">
+          <p>{selectedQuestDesc}</p>
+          <button onClick={closeDescModal}>Close</button>
         </div>
-        <div className="quest-difficulty">
-          {quest.difficulty}
-        </div>
-        <div className="action-buttons">
-          <button onClick={() => handleRemoveQuest(index)}>Remove</button>
-        </div>
-      </li>
-    ))}
-  </ul>
+      )}
+
+      <ul>
+        {filteredQuests.map((quest, index) => (
+          <li
+            key={index}
+            className={`quest-item ${
+              quest.difficulty === 'Easy'
+                ? 'easy'
+                : quest.difficulty === 'Medium'
+                ? 'medium'
+                : 'hard'
+            } ${quest.completed ? 'completed' : ''}`} // Adds 'completed' class if the quest is completed
+          >
+            <div className="quest-name" style={{ display: 'flex', alignItems: 'center' }}>
+              <input
+                type="checkbox"
+                checked={quest.completed}
+                onChange={() => handleCheckboxChange(index)}
+                style={{ marginRight: '8px' }}
+              />
+              <span style={{ textDecoration: quest.completed ? 'line-through' : 'none' }}>
+                {quest.name}
+              </span>
+            </div>
+            <div className="quest-difficulty">
+              {quest.difficulty}
+            </div>
+            <div className="action-buttons">
+              <button onClick={() => openDescModal(quest.description)}>Desc</button>
+              <button onClick={() => handleRemoveQuest(index)}>Remove</button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
