@@ -4,7 +4,7 @@ Accessable at: [questhub.vercel.app](http://questhub.vercel.app)
 
 &nbsp;
 
-<span style="text-decoration: underline">Contributors</span>
+<ins>Contributors</ins>
 
 *Noah Bockmuehl*
 
