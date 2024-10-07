@@ -43,7 +43,7 @@ const Navbar = (props) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top w-100">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">QuestHub</a>
+          <a className="navbar-brand">QuestHub</a>
           <button
             className="navbar-toggler"
             type="button"
