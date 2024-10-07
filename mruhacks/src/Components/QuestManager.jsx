@@ -55,9 +55,9 @@ const QuestManager = ({ selectedDate }) => {
       const questsForDate = prevState[selectedDate] || [];
       const updatedQuests = questsForDate.map((quest, i) => {
         if (i === index) {
-            if (quest.difficulty.includes('Medium')){
+            if (quest.difficulty.includes('Medium')) {
                 difficulty_mod = 2
-            } else if (quest.difficulty.includes('Hard')){
+            } else if (quest.difficulty.includes('Hard')) {
                 difficulty_mod = 3
             }
             if (quest.completed){
